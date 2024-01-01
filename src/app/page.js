@@ -16,39 +16,17 @@ export default function index() {
       gsap.fromTo(
         ref.current,
         {
-          color: 'blue',
-          y: '0vw',
+          y: 0,
         },
         {
-          color: 'red',
-          duration: 1.6,
-          x: '20vw',
-          // rotate: 360,
-          ease: 'easeInOut',
-          // delay: 1,
-          // repeat: -1,
-        }
-
-        // const moveEl = (xVal, yVal) => {
-        //   gsap.to(divRef.current, 0.5, { x: "+=" + xVal, y: "+=" + yVal });
-        // };
-      );
-      gsap.set(container.current, { backgroundColor: 'yellow' });
-      gsap.fromTo(
-        container.current,
-        {
-          backgroundColor: 'yellow',
-          duration: 1.6,
-          // ease: 'easeInOut',
-        },
-        {
-          backgroundColor: 'green',
-          duration: 1.6,
-          ease: 'bounce.out',
-          repeat: -1,
+          y: -50,
+          duration: 0.2,
+          ease: 'bounce.out', // Changez 'power2.inOut' en 'bounce.out'
+          repeat: 3, // Changez -1 en le nombre de fois que vous voulez que l'animation se répète
           yoyo: true,
         }
       );
+      gsap.set(container.current, { backgroundColor: 'yellow' });
     });
     return () => ctx.revert();
   }, []);
