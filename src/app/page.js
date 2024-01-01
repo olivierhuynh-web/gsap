@@ -28,7 +28,7 @@ export default function Index() {
         // onComplete: addLetters,
       }
     );
-    //test2
+    //test23
     // Revert l'animation à la fin du composant
     return () => tl.revert();
   }, []);
