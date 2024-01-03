@@ -2,43 +2,35 @@
 // Importez les modules nécessaires
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/dist/TextPlugin'; // Importez TextPlugin
-import { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useEffect, useRef } from 'react';
 import styles from './page.module.css';
 
 gsap.registerPlugin(TextPlugin); // Enregistrez le plugin
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 export default function Index() {
-  const ref = useRef();
+  const text1 = useRef();
+  const text2 = useRef();
 
-  useLayoutEffect(() => {
-    // Créez une timeline GSAP pour l'animation du texte
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      ref.current,
-      {
-        duration: 2,
-        // text: 'This is the new text',
-        ease: 'none',
-      },
-      {
-        duration: 2, // Durée pour chaque lettre
-        text: 'This is the new text lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ease: 'power1.inOut',
-        // onComplete: addLetters,
-      }
-    );
-    //test23
-    // Revert l'animation à la fin du composant
-    return () => tl.revert();
+  useIsomorphicLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.to([text1.current, text2.current], {
+        y: 100,
+        stagger: 0.1, // 0.1 seconds between when each ".box" element starts animating
+      });
+    });
+    return () => ctx.revert();
   }, []);
 
   return (
     <div className={styles.container}>
-      <span className={styles.text} ref={ref}>
-        {/* Votre texte initial */}
-        {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt... */}
+      <span className={styles.text} ref={text1}>
+        ok
+      </span>
+      <span className={styles.text} ref={text2}>
+        ok
       </span>
     </div>
   );
