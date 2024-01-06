@@ -21,7 +21,7 @@ export default function index() {
         {
           y: -50,
           duration: 0.2,
-          ease: 'bounce.out', // Changez 'power2.inOut' en 'bounce.out'
+          ease: 'bounce.out',
           repeat: 3, // Changez -1 en le nombre de fois que vous voulez que l'animation se répète
           yoyo: true,
         }

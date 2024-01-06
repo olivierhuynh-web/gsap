@@ -15,13 +15,18 @@ export default function Index() {
   const text2 = useRef();
 
   useIsomorphicLayoutEffect(() => {
+    // Utilisez `.` pour cibler les éléments par leur classe CSS
+    const text = document.querySelectorAll(`.${styles.text}`);
+
     let ctx = gsap.context(() => {
-      gsap.to([text1.current, text2.current], {
+      gsap.to(text, {
         y: 100,
         stagger: 0.1, // 0.1 seconds between when each ".box" element starts animating
       });
     });
+
     return () => ctx.revert();
+    //Test
   }, []);
 
   return (
