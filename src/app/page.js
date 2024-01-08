@@ -21,7 +21,8 @@ export default function Index() {
     let ctx = gsap.context(() => {
       gsap.to(text, {
         y: 100,
-        stagger: 0.1, // 0.1 seconds between when each ".box" element starts animating
+        stagger: 1, // 0.1 seconds between when each ".box" element starts animating
+        from: 'end',
       });
     });
 
