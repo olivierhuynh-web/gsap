@@ -8,25 +8,17 @@
   align-items: center;
 }
 
-.text{
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-}
 
-.conic_gradient {
-  width: 150px;
-  height: 150px;
-  background: conic-gradient(from -28deg, white,black 180deg,white);
-  border-radius:50%;
-  transition:all .5s;
-  transform:rotate(0deg);
-}
-
-.redBackground{
-  background-color: black;
-  width: 100%;
+.parallax-container {
   height: 100vh;
-  z-index: -1;
-  display: 'none'
+  overflow: hidden;
+  perspective: 1000px; /* Réglez la perspective pour un effet 3D */
+}
+
+.layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

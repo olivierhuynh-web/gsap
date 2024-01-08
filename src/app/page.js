@@ -104,32 +104,19 @@ export default function Index() {
 
   return (
     <div className={styles.container}>
-      <span className={styles.text} ref={text1}>
-        ok
-      </span>
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>{' '}
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>{' '}
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>{' '}
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>{' '}
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>{' '}
-      <span className={styles.text} ref={text2}>
-        ok
-      </span>
-      <div className={styles.conic_gradient} ref={conic_gradient}></div>
-      <div className={styles.redBackground} ref={redBackground}></div>
+      {' '}
+      <div class='parallax-container'>
+        <div class='layer' data-depth='0.2'>
+          {/* <!-- Plus le data-depth est petit, plus l'effet de parallaxe est prononcé -->
+        <!-- Contenu du premier calque --> */}
+        </div>
+        <div class='layer' data-depth='0.5'>
+          {/* <!-- Contenu du deuxième calque --> */}
+        </div>
+        <div class='layer' data-depth='0.8'>
+          {/* <!-- Contenu du troisième calque --> */}
+        </div>
+      </div>
     </div>
   );
 }
