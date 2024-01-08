@@ -83,6 +83,11 @@ export default function Index() {
         zIndex: 5,
         color: 'yellow',
         border: 'none',
+        stagger: function (index) {
+          console.log(index);
+          return index * 0.5;
+        },
+        ease: 'elastic.out(1,0.3)',
       });
       tl.to(
         text,
@@ -102,6 +107,24 @@ export default function Index() {
       <span className={styles.text} ref={text1}>
         ok
       </span>
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>{' '}
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>{' '}
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>{' '}
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>{' '}
+      <span className={styles.text} ref={text2}>
+        ok
+      </span>{' '}
       <span className={styles.text} ref={text2}>
         ok
       </span>
