@@ -1,26 +1,56 @@
 'use client';
-// Importez les modules nécessaires
-import gsap from 'gsap';
-import { TextPlugin } from 'gsap/dist/TextPlugin'; // Importez TextPlugin
-import React, { useLayoutEffect, useEffect, useRef } from 'react';
-import styles from './page.module.scss';
-import index from './2/page';
+import { useRef, useEffect, useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(TextPlugin); // Enregistrez le plugin
+import styles from './page.module.scss'; // Importez votre fichier de style
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export default function Index() {
-  useIsomorphicLayoutEffect(() => {
-    const tl = gsap.timeline();
+  const elementRef = useRef();
 
-    let ctx = gsap.context(() => {}, []);
+  ScrollTrigger.addEventListener('refresh', function () {
+    if (document.body.getAttribute('style') === '') {
+      document.body.removeAttribute('style');
+    }
   });
 
+  const element = useRef(null);
+
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    let ctx = gsap.context(() => {
+      // if (el) {
+      gsap.fromTo(
+        element.current,
+        { rotation: 0 },
+        {
+          rotation: 360,
+          x: 100,
+          duration: 3,
+          backgroundColor: 'blue',
+          scrollTrigger: {
+            trigger: element.current, // Corrigez ceci
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+            markers: true,
+          },
+          onStart: () => console.log('test'), // Ajoutez ceci
+        }
+      );
+      // }
+    });
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <div className={styles.animation}></div>
+    <div>
+      <div className={styles.container}>
+        <div className={styles.element} ref={element}></div>
+      </div>
     </div>
   );
 }
