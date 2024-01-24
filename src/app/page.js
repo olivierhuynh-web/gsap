@@ -39,7 +39,7 @@ export default function Index() {
   }
 
   const elementVertical = useRef(null);
-  const elementHorizontal = [
+  const elementHorizontalRefs = [
     useRef(null),
     useRef(null),
     useRef(null),
@@ -66,7 +66,7 @@ export default function Index() {
           duration: 3,
           backgroundColor: 'blue',
           scrollTrigger: {
-            trigger: section_1.current, // Utilisez section_1 comme déclencheur
+            trigger: section_1.current,
             start: 'top center',
             end: 'bottom center',
             scrub: true,
@@ -75,30 +75,25 @@ export default function Index() {
         }
       );
 
-      let horizontal_elements =
-        gsap.utils.toArray < HTMLElement > '.horizontalElement';
-
-      // let horizontal_elements = gsap.utils.toArray(styles.horizontalElement);
-
-      // Créez une séquence d'animations pour chaque élément horizontal
-      horizontal_elements.forEach((element, index) => {
-        const horizontalMovement = gsap.to(element, {
-          xPercent: -100 * (horizontal_elements.length - 1),
-          ease: 'sine.out',
-          scrollTrigger: {
-            trigger: element, // Utilisez l'élément actuel comme déclencheur
-            pin: true,
-            scrub: 3,
-            snap: 1 / (horizontal_elements.length - 1),
-            end: '+=5000', // Vous devrez ajuster cette valeur en fonction de la taille de vos éléments
-          },
-        });
-
-        tl.add(horizontalMovement);
+      const horizontalElements = gsap.utils.toArray(
+        elementHorizontalRefs.map((ref) => ref.current)
+      );
+      console.log(horizontalElements);
+      const horizontalMovement = gsap.to(horizontalElements, {
+        xPercent: -100 * (horizontalElements.length - 1),
+        ease: 'sine.out',
+        duration: 3,
+        scrollTrigger: {
+          trigger: section_2.current,
+          pin: true,
+          scrub: 3,
+          snap: 1 / (horizontalElements.length - 1),
+          end: '+=5000',
+        },
       });
 
       tl.add(verticalMovement);
-      // tl.add(horizontalMovement);
+      tl.add(horizontalMovement);
     }, []);
   });
 
@@ -110,30 +105,13 @@ export default function Index() {
         </section>
 
         <section className={styles.section_2} ref={section_2}>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[0]}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[1]}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[2]}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[3]}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[4]}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal[5]}
-          ></div>
+          {elementHorizontalRefs.map((ref, index) => (
+            <div
+              key={index}
+              className={styles.horizontalElement}
+              ref={ref}
+            ></div>
+          ))}
         </section>
       </div>
     </div>
