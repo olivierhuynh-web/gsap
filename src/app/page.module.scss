@@ -5,10 +5,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  // gap: 1000px;
 }
 
 .element {
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 100px;
   background-color: pink;
+}
+
+.horizontalElement {
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+}
+
+.section_1 {
+  height: 100vh;
+  width: 100%;
+  background-color: green;
+  padding-left: 300px;
+}
+.section_2 {
+  height: 100vh;
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
 }
