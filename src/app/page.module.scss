@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   min-height: 200vh;
-  background-color: red;
+  // background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,9 @@
   height: 100px;
   width: 100px;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section_1 {

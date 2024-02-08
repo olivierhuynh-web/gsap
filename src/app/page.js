@@ -82,32 +82,23 @@ export default function Index() {
       tl.add(verticalMovement);
     }, []);
 
-    const horizontalMovement = gsap.to(
-      [
-        elementHorizontal0.current,
-        elementHorizontal1.current,
-        elementHorizontal2.current,
-        elementHorizontal3.current,
-        elementHorizontal4.current,
-        elementHorizontal5.current,
-      ],
-      {
-        xPercent: -1500,
-        // * (elementHorizontal0 - 1)
-        backgroundColor: 'red',
-        ease: 'sine.out',
-        duration: 10,
-        scrollTrigger: {
-          trigger: section_2.current,
-          markers: true,
-          id: 'test2',
-          scrub: 3,
-          // snap: 1 / (horizontalElements.length - 1),
-          start: 'top top',
-          end: 'bottom bottom',
-        },
-      }
-    );
+    const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
+
+    const horizontalMovement = gsap.to(box_items, {
+      xPercent: -100 * (box_items.length - 1),
+      ease: 'sine.out',
+      // duration: 3,
+      scrollTrigger: {
+        trigger: section_2.current,
+        pin: true,
+        pinSpacing: false,
+        markers: true,
+        scrub: 1,
+        snap: 1 / (box_items.length - 1),
+        start: 'top 300px',
+        end: 'bottom bottom',
+      },
+    });
     tl.add(horizontalMovement);
   });
 
@@ -119,30 +110,24 @@ export default function Index() {
         </section>
 
         <section className={styles.section_2} ref={section_2}>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal0}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal1}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal2}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal3}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal4}
-          ></div>
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal5}
-          ></div>
+          <div className={styles.horizontalElement} ref={elementHorizontal0}>
+            0
+          </div>
+          <div className={styles.horizontalElement} ref={elementHorizontal1}>
+            1
+          </div>
+          <div className={styles.horizontalElement} ref={elementHorizontal2}>
+            2
+          </div>
+          <div className={styles.horizontalElement} ref={elementHorizontal3}>
+            3
+          </div>
+          <div className={styles.horizontalElement} ref={elementHorizontal4}>
+            4
+          </div>
+          <div className={styles.horizontalElement} ref={elementHorizontal5}>
+            5
+          </div>
         </section>
       </div>
     </div>
