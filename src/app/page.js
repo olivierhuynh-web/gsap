@@ -39,62 +39,76 @@ export default function Index() {
   }
 
   const elementVertical = useRef(null);
-  const elementHorizontalRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
+  const elementHorizontal0 = useRef(null);
+  const elementHorizontal1 = useRef(null);
+  const elementHorizontal2 = useRef(null);
+  const elementHorizontal3 = useRef(null);
+  const elementHorizontal4 = useRef(null);
+  const elementHorizontal5 = useRef(null);
 
   const section_1 = useRef(null);
   const section_2 = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline();
 
     let ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
       const verticalMovement = gsap.fromTo(
         elementVertical.current,
-        { rotation: 0 },
         {
-          rotation: 360,
-          y: 100,
+          x: 0,
+          // ,
+          // backgroundColor: 'blue'
+        }, // Position initiale
+        {
+          x: 500, // Déplacement horizontal de 100 pixels vers la droite
+          ease: 'power2.out', // Fonction d'animation
           duration: 3,
-          backgroundColor: 'blue',
+          backgroundColor: 'green',
+          scale: 3,
           scrollTrigger: {
-            trigger: section_1.current,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: true,
-            markers: true,
+            id: 'test', // Identifiant unique du déclencheur
+            trigger: elementVertical.current, // Déclencheur de l'animation
+            start: 'top 250px', // Point de départ de l'animation
+            end: 'bottom 250px', // Point de fin de l'animation
+            scrub: 5, // Effet de parallaxe activé
+            markers: true, // Affichage des marqueurs de déclenchement pour le débogage
+            toggleActions: 'play none restart reset', // Action à effectuer lors du déclenchement
           },
         }
       );
 
-      const horizontalElements = gsap.utils.toArray(
-        elementHorizontalRefs.map((ref) => ref.current)
-      );
-      console.log(horizontalElements);
-      const horizontalMovement = gsap.to(horizontalElements, {
-        xPercent: -100 * (horizontalElements.length - 1),
+      tl.add(verticalMovement);
+    }, []);
+
+    const horizontalMovement = gsap.to(
+      [
+        elementHorizontal0.current,
+        elementHorizontal1.current,
+        elementHorizontal2.current,
+        elementHorizontal3.current,
+        elementHorizontal4.current,
+        elementHorizontal5.current,
+      ],
+      {
+        xPercent: -1500,
+        // * (elementHorizontal0 - 1)
+        backgroundColor: 'red',
         ease: 'sine.out',
-        duration: 3,
+        duration: 10,
         scrollTrigger: {
           trigger: section_2.current,
-          pin: true,
+          markers: true,
+          id: 'test2',
           scrub: 3,
-          snap: 1 / (horizontalElements.length - 1),
-          end: '+=5000',
+          // snap: 1 / (horizontalElements.length - 1),
+          start: 'top top',
+          end: 'bottom bottom',
         },
-      });
-
-      tl.add(verticalMovement);
-      tl.add(horizontalMovement);
-    }, []);
+      }
+    );
+    tl.add(horizontalMovement);
   });
 
   return (
@@ -105,13 +119,30 @@ export default function Index() {
         </section>
 
         <section className={styles.section_2} ref={section_2}>
-          {elementHorizontalRefs.map((ref, index) => (
-            <div
-              key={index}
-              className={styles.horizontalElement}
-              ref={ref}
-            ></div>
-          ))}
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal0}
+          ></div>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal1}
+          ></div>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal2}
+          ></div>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal3}
+          ></div>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal4}
+          ></div>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal5}
+          ></div>
         </section>
       </div>
     </div>
