@@ -85,27 +85,34 @@ export default function Index() {
 
     // const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
 
-    const horizontalScrollTween = gsap.to(section2Wrapper.current, {
-      x: '-1000px',
-      duration: 3,
-      ease: 'none',
-      onStart() {
-        console.log('start');
+    const pin = gsap.fromTo(
+      section2Wrapper.current,
+      {
+        translateX: 0,
       },
-    });
+      {
+        translateX: '-300vw',
+        ease: 'none',
+        duration: 1,
+        scrollTrigger: {
+          trigger: section_2.current,
+          start: 'top top',
+          end: '2000 bottom',
+          scrub: 0.6,
+          pin: true,
+          markers: true,
+          id: 'horizontal',
+        },
+      }
+    );
+    return () => {
+      {
+        /* A return function for killing the animation on component unmount */
+      }
+      pin.kill();
+    };
 
-    ScrollTrigger.create({
-      trigger: section_2.current,
-      start: 'top center', // Commence lorsque le centre de la section 2 atteint le haut de la fenêtre
-      end: 'bottom center', // Se termine lorsque le centre de la section 2 atteint le bas de la fenêtre
-      animation: horizontalScrollTween,
-      scrub: 2, // Activer l'effet de frottement pour un défilement fluide
-      markers: true, // Pour le débogage, affiche les marqueurs de déclenchement
-      id: 'horizontal', // Identifiant unique du déclencheur
-      end: () => `+=${section_2.current.offsetWidth}`, // Déclencheur de fin de l'animation
-    });
-
-    tl.add(horizontalScrollTween);
+    tl.add(pin);
   });
 
   return (
