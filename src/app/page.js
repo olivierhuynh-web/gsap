@@ -144,7 +144,10 @@ export default function Index() {
     <div>
       <div className={styles.container}>
         <section className={styles.section_1} ref={section_1}>
-          <div className={styles.elementVertical} ref={elementVertical}></div>
+          <div className={styles.roundedSquare1}>Olivier HUYNH</div>
+          <div className={styles.roundedSquare2}>Développeur</div>
+
+          {/* <div className={styles.elementVertical} ref={elementVertical}></div> */}
         </section>
         {/* <div className={styles.section2And3Container}> */}
         <section className={styles.section_2} ref={section_2}>
