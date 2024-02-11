@@ -49,6 +49,7 @@ export default function Index() {
 
   const section_1 = useRef(null);
   const section_2 = useRef(null);
+  const section_3 = useRef(null);
 
   const section2Wrapper = useRef(null);
 
@@ -89,15 +90,17 @@ export default function Index() {
       section2Wrapper.current,
       {
         translateX: 0,
+        scale: 0.9,
       },
       {
         translateX: '-300vw',
-        ease: 'none',
+        scale: 1.2,
+        ease: 'sine.out',
         duration: 1,
         scrollTrigger: {
           trigger: section_2.current,
           start: 'top top',
-          end: '2000 bottom',
+          end: '1000 bottom',
           scrub: 0.6,
           pin: true,
           markers: true,
@@ -107,12 +110,34 @@ export default function Index() {
     );
     return () => {
       {
+        pin.kill();
+
         /* A return function for killing the animation on component unmount */
       }
-      pin.kill();
+      // pin.kill();
     };
 
     tl.add(pin);
+
+    const contactPin = gsap.fromTo(
+      section_3.current,
+      {
+        xPercent: 100,
+      },
+      {
+        xPercent: 0,
+        scrollTrigger: {
+          trigger: section_3.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1,
+          pin: true,
+          markers: true,
+          id: 'contact',
+        },
+      }
+    );
+    tl.add(contactPin);
   });
 
   return (
@@ -121,7 +146,7 @@ export default function Index() {
         <section className={styles.section_1} ref={section_1}>
           <div className={styles.elementVertical} ref={elementVertical}></div>
         </section>
-
+        {/* <div className={styles.section2And3Container}> */}
         <section className={styles.section_2} ref={section_2}>
           <div className={styles.section_2__wrapper} ref={section2Wrapper}>
             <div className={styles.horizontalElement} ref={elementHorizontal0}>
@@ -144,6 +169,10 @@ export default function Index() {
             </div>
           </div>
         </section>
+        <section className={styles.section_3} ref={section_3}>
+          <h2>CONTACT</h2>
+        </section>
+        {/* </div> */}
       </div>
     </div>
   );
