@@ -15,7 +15,7 @@
   background-color: purple;
 }
 
-.element {
+.elementVertical {
   height: 100px;
   width: 100px;
   background-color: yellow;
@@ -34,9 +34,10 @@
   align-items: center;
   gap: 150px;
   overflow: hidden;
+
   &__wrapper {
     height: 100vh;
-    width: 5000px;
+    width: 3000px;
     display: flex;
     flex-direction: row;
     justify-content: center;

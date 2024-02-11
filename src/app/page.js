@@ -50,7 +50,7 @@ export default function Index() {
   const section_1 = useRef(null);
   const section_2 = useRef(null);
 
-  const section2_Wrapper = useRef(null);
+  const section2Wrapper = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -61,12 +61,10 @@ export default function Index() {
         elementVertical.current,
         {
           x: 0,
-          // ,
-          // backgroundColor: 'blue'
-        }, // Position initiale
+        },
         {
-          x: 500, // Déplacement horizontal de 100 pixels vers la droite
-          ease: 'power2.out', // Fonction d'animation
+          x: 500,
+          ease: 'power2.out',
           duration: 3,
           backgroundColor: 'green',
           scale: 3,
@@ -85,35 +83,40 @@ export default function Index() {
       tl.add(verticalMovement);
     }, []);
 
-    const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
+    // const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
 
-    const horizontalMovement = gsap.to(section2_Wrapper.current, {
-      // xPercent: -100 * (box_items.length - 1),
-      xPercent: -100,
-      ease: 'sine.out',
-      scrollTrigger: {
-        markers: true,
-        id: 'horizontal',
-        trigger: section_2.current,
-        pin: true,
-        scrub: 25,
-        snap: 1 / (box_items.length - 1),
-        // end: '+=' + section_2.offsetWidth,
-        end: 'bottom 3000px',
+    const horizontalScrollTween = gsap.to(section2Wrapper.current, {
+      x: '-1000px',
+      duration: 3,
+      ease: 'none',
+      onStart() {
+        console.log('start');
       },
     });
-    tl.add(horizontalMovement);
+
+    ScrollTrigger.create({
+      trigger: section_2.current,
+      start: 'top center', // Commence lorsque le centre de la section 2 atteint le haut de la fenêtre
+      end: 'bottom center', // Se termine lorsque le centre de la section 2 atteint le bas de la fenêtre
+      animation: horizontalScrollTween,
+      scrub: 2, // Activer l'effet de frottement pour un défilement fluide
+      markers: true, // Pour le débogage, affiche les marqueurs de déclenchement
+      id: 'horizontal', // Identifiant unique du déclencheur
+      end: () => `+=${section_2.current.offsetWidth}`, // Déclencheur de fin de l'animation
+    });
+
+    tl.add(horizontalScrollTween);
   });
 
   return (
     <div>
       <div className={styles.container}>
         <section className={styles.section_1} ref={section_1}>
-          <div className={styles.element} ref={elementVertical}></div>
+          <div className={styles.elementVertical} ref={elementVertical}></div>
         </section>
 
         <section className={styles.section_2} ref={section_2}>
-          <div className={styles.section_2__wrapper} ref={section2_Wrapper}>
+          <div className={styles.section_2__wrapper} ref={section2Wrapper}>
             <div className={styles.horizontalElement} ref={elementHorizontal0}>
               0
             </div>
