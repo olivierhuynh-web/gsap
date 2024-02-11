@@ -50,6 +50,8 @@ export default function Index() {
   const section_1 = useRef(null);
   const section_2 = useRef(null);
 
+  const section2_Wrapper = useRef(null);
+
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
@@ -69,7 +71,7 @@ export default function Index() {
           backgroundColor: 'green',
           scale: 3,
           scrollTrigger: {
-            id: 'test', // Identifiant unique du déclencheur
+            id: 'vertical', // Identifiant unique du déclencheur
             trigger: elementVertical.current, // Déclencheur de l'animation
             start: 'top 250px', // Point de départ de l'animation
             end: 'bottom 250px', // Point de fin de l'animation
@@ -85,19 +87,19 @@ export default function Index() {
 
     const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
 
-    const horizontalMovement = gsap.to(box_items, {
-      xPercent: -100 * (box_items.length - 1),
+    const horizontalMovement = gsap.to(section2_Wrapper.current, {
+      // xPercent: -100 * (box_items.length - 1),
+      xPercent: -100,
       ease: 'sine.out',
-      // duration: 3,
       scrollTrigger: {
+        markers: true,
+        id: 'horizontal',
         trigger: section_2.current,
         pin: true,
-        pinSpacing: false,
-        markers: true,
-        scrub: 1,
+        scrub: 25,
         snap: 1 / (box_items.length - 1),
-        start: 'top 300px',
-        end: 'bottom bottom',
+        // end: '+=' + section_2.offsetWidth,
+        end: 'bottom 3000px',
       },
     });
     tl.add(horizontalMovement);
@@ -111,23 +113,25 @@ export default function Index() {
         </section>
 
         <section className={styles.section_2} ref={section_2}>
-          <div className={styles.horizontalElement} ref={elementHorizontal0}>
-            0
-          </div>
-          <div className={styles.horizontalElement} ref={elementHorizontal1}>
-            1
-          </div>
-          <div className={styles.horizontalElement} ref={elementHorizontal2}>
-            2
-          </div>
-          <div className={styles.horizontalElement} ref={elementHorizontal3}>
-            3
-          </div>
-          <div className={styles.horizontalElement} ref={elementHorizontal4}>
-            4
-          </div>
-          <div className={styles.horizontalElement} ref={elementHorizontal5}>
-            5
+          <div className={styles.section_2__wrapper} ref={section2_Wrapper}>
+            <div className={styles.horizontalElement} ref={elementHorizontal0}>
+              0
+            </div>
+            <div className={styles.horizontalElement} ref={elementHorizontal1}>
+              1
+            </div>
+            <div className={styles.horizontalElement} ref={elementHorizontal2}>
+              2
+            </div>
+            <div className={styles.horizontalElement} ref={elementHorizontal3}>
+              3
+            </div>
+            <div className={styles.horizontalElement} ref={elementHorizontal4}>
+              4
+            </div>
+            <div className={styles.horizontalElement} ref={elementHorizontal5}>
+              5
+            </div>
           </div>
         </section>
       </div>
