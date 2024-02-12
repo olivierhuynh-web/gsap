@@ -4,18 +4,15 @@ import { useRef, useEffect, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
+import Image from 'next/image';
+import Presentation from './components/Presentation/Presentation';
 
 import styles from './page.module.scss'; // Importez votre fichier de style
-import { Mulish, Space_Mono } from '@next/font/google';
+import CustomFont from '@next/font/local';
 
-const mulish = Mulish({
-  subsets: ['latin'],
-  weight: ['700'],
-});
-
-const spaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
+const rightGrotesk = CustomFont({
+  src: './fonts/PPRightGrotesk-CompactDark.otf',
+  // variable: '--font-cfont',
 });
 
 const useIsomorphicLayoutEffect =
@@ -58,8 +55,6 @@ export default function Index() {
   const elementHorizontal4 = useRef(null);
   const elementHorizontal5 = useRef(null);
 
-  const section_1 = useRef(null);
-  const section_2 = useRef(null);
   const section_3 = useRef(null);
 
   const section2Wrapper = useRef(null);
@@ -101,18 +96,18 @@ export default function Index() {
       section2Wrapper.current,
       {
         // scale: 0.9,
-        x: 160,
+        x: 230,
         // transformOrigin: 'center center',
       },
       {
         // scale: 1,
         x: 0,
-        // backgroundColor: 'red',
+        ease: 'slow(0.7,0.7,false)', // backgroundColor: 'red',
         // transformOrigin: 'center center',
         scrollTrigger: {
           trigger: section_2.current,
           start: 'top+=2px bottom',
-          end: 'center bottom',
+          end: '70% bottom',
           scrub: 1,
           markers: true,
           id: 'introduction',
@@ -162,14 +157,6 @@ export default function Index() {
         },
       }
     );
-    return () => {
-      {
-        pin.kill();
-
-        /* A return function for killing the animation on component unmount */
-      }
-      // pin.kill();
-    };
 
     tl.add(pin);
 
@@ -186,6 +173,7 @@ export default function Index() {
           end: 'bottom bottom',
           scrub: 1,
           pin: true,
+          pinSpacing: false,
           markers: true,
           id: 'contact',
         },
@@ -197,53 +185,12 @@ export default function Index() {
   return (
     <div>
       <div className={styles.container}>
-        <section className={styles.section_1} ref={section_1}>
-          <div className={`${styles.roundedSquare1} ${mulish.className}`}>
-            OLIVIER HUYNH
-          </div>
-          <div className={`${styles.roundedSquare2} ${spaceMono.className}`}>
-            <span>🌸 Développeur web</span>
-            <span>
-              🌸 Ouvert pour collaborations et contrats de développement web
-            </span>
-          </div>
-          <div className={`${styles.roundedSquare3} ${spaceMono.className}`}>
-            <span>🌼 Spécialisé front-end</span>
-            <span>🌼 JavaScript et TypeScript</span>
-            <span>🌼 React et Next.js</span>
-            <span>🌼 Node.js et PostreSQL</span>
-            <span>🌼 GSAP</span>
-          </div>
-
-          {/* <div className={styles.elementVertical} ref={elementVertical}></div> */}
-        </section>
+        <Presentation />
         {/* <div className={styles.section2And3Container}> */}
-        <section className={styles.section_2} ref={section_2}>
-          <div className={styles.section_2__wrapper} ref={section2Wrapper}>
-            <div></div>
-            <div className={styles.horizontalElement} ref={elementHorizontal0}>
-              0
-            </div>
-            <div className={styles.horizontalElement} ref={elementHorizontal1}>
-              1
-            </div>
-            <div className={styles.horizontalElement} ref={elementHorizontal2}>
-              2
-            </div>
-            <div className={styles.horizontalElement} ref={elementHorizontal3}>
-              3
-            </div>
-            <div className={styles.horizontalElement} ref={elementHorizontal4}>
-              4
-            </div>
-            <div className={styles.horizontalElement} ref={elementHorizontal5}>
-              5
-            </div>
-          </div>
-        </section>
+
         {/* <section className={styles.section_3} ref={section_3}>
-          <h2 className={mulish.className}>CONTACT</h2>
-        </section> */}
+            <h2 className={mulish.className}>CONTACT</h2>
+          </section> */}
         {/* </div> */}
       </div>
     </div>
