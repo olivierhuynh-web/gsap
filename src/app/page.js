@@ -107,13 +107,15 @@ export default function Index() {
       {
         // scale: 1,
         x: 0,
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         // transformOrigin: 'center center',
         scrollTrigger: {
           trigger: section_2.current,
           start: 'top+=2px bottom',
           end: 'center bottom',
           scrub: 1,
+          markers: true,
+          id: 'introduction',
         },
       }
     );
@@ -125,16 +127,20 @@ export default function Index() {
       { scale: 0.9 },
       {
         scale: 1,
+        duration: 1,
         transformOrigin: 'center center',
         scrollTrigger: {
           trigger: cards,
-          start: 'top bottom',
+          scrub: 1,
+          start: '90% bottom',
           end: 'center bottom',
           markers: true,
           id: 'scale',
         },
       }
     );
+
+    tl.add(scaleCards);
 
     const pin = gsap.fromTo(
       section2Wrapper.current,
@@ -214,6 +220,7 @@ export default function Index() {
         {/* <div className={styles.section2And3Container}> */}
         <section className={styles.section_2} ref={section_2}>
           <div className={styles.section_2__wrapper} ref={section2Wrapper}>
+            <div></div>
             <div className={styles.horizontalElement} ref={elementHorizontal0}>
               0
             </div>
@@ -234,9 +241,9 @@ export default function Index() {
             </div>
           </div>
         </section>
-        <section className={styles.section_3} ref={section_3}>
+        {/* <section className={styles.section_3} ref={section_3}>
           <h2 className={mulish.className}>CONTACT</h2>
-        </section>
+        </section> */}
         {/* </div> */}
       </div>
     </div>
