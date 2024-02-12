@@ -9,64 +9,6 @@
   gap: 0;
 }
 
-.section_2 {
-  height: 100vh;
-  width: 100vw;
-  background-color: darkgrey;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 150px;
-  overflow: hidden;
-  position: relative;
-
-  &__wrapper {
-    position: absolute;
-    left: 0;
-    height: 100vh;
-    width: 3000px;
-    display: flex;
-    flex-direction: row;
-    // justify-content: center;
-    align-items: center;
-    gap: 2%;
-    // background-color: #fff;
-  }
-}
-
-.horizontalElement {
-  height: 500px;
-  width: 300px;
-  background-color: pink;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  border: solid 5px black;
-  scale: 0.9;
-  padding: 20px;
-}
-
-.image_wrapper {
-  height: 45%;
-  width: 100%;
-  border: 1px solid black;
-  overflow: hidden; /* Assure que le contenu qui dépasse sera caché */
-  // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-}
-
-.cardImage {
-  max-width: 100%; /* Empêche l'image de dépasser la largeur de son conteneur */
-  max-height: 100%; /* Empêche l'image de dépasser la hauteur de son conteneur */
-  display: block; /* Assure que l'image est affichée comme un bloc pour respecter les dimensions spécifiées */
-  margin: auto; /* Centre l'image horizontalement */
-}
-
-.card_title {
-  font-size: 30px;
-}
-
 .section2And3Container {
   display: flex;
   flex-direction: row;
