@@ -12,37 +12,64 @@
 .section_1 {
   height: 100vh;
   width: 100vw;
-  background-color: purple;
+  background-color: darkgray;
 }
 
 .roundedSquare1 {
+  padding: 20px;
+
   height: 200px;
   width: 400px;
   background-color: white;
-  margin-left: 30%;
+  margin-left: 36%;
   margin-top: 20vh;
   border-radius: 10px;
   border: solid 5px black;
   display: flex;
   justify-content: center;
-  font-size: 32px;
+  font-size: 45px;
   padding-top: 10px;
+  z-index: 1;
 }
 
 .roundedSquare2 {
+  padding: 20px;
   position: absolute;
-  top: 8%;
-  height: 200px;
+  top: 9%;
+  height: 250px;
   width: 400px;
   background-color: white;
   margin-left: 27%;
   margin-top: 20vh;
   border-radius: 10px;
   border: solid 5px black;
-  display: flex;
-  justify-content: center;
-  font-size: 32px;
+  font-size: 28px;
   padding-top: 10px;
+  z-index: 2;
+  span {
+    display: block;
+  }
+}
+
+.roundedSquare3 {
+  padding: 20px;
+
+  position: absolute;
+  top: 10%;
+  height: 300px;
+  width: 400px;
+  background-color: white;
+  margin-left: 48%;
+  margin-top: 25vh;
+  border-radius: 10px;
+  border: solid 5px black;
+
+  font-size: 28px;
+  padding-top: 10px;
+  z-index: 3;
+  span {
+    display: block;
+  }
 }
 
 .elementVertical {
@@ -52,7 +79,7 @@
   margin-left: 300px;
   margin-top: 300px;
   border-radius: 10px;
-  border: solid 1px black;
+  // border: solid 5px black;
 }
 .section_2 {
   height: 100vh;
@@ -88,7 +115,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  border: 1px solid black;
+  border: solid 5px black;
   scale: 0.7;
 }
 
@@ -113,5 +140,6 @@
   h2 {
     color: pink;
     margin-left: 10%;
+    font-size: 45px;
   }
 }

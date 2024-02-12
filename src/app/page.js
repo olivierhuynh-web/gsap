@@ -6,6 +6,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 
 import styles from './page.module.scss'; // Importez votre fichier de style
+import { Mulish, Space_Mono } from '@next/font/google';
+
+const mulish = Mulish({
+  subsets: ['latin'],
+  weight: ['700'],
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
@@ -86,22 +97,59 @@ export default function Index() {
 
     // const box_items = document.querySelectorAll(`.${styles.horizontalElement}`);
 
+    const introductionCards = gsap.fromTo(
+      section2Wrapper.current,
+      {
+        // scale: 0.9,
+        x: 160,
+        // transformOrigin: 'center center',
+      },
+      {
+        // scale: 1,
+        x: 0,
+        backgroundColor: 'red',
+        // transformOrigin: 'center center',
+        scrollTrigger: {
+          trigger: section_2.current,
+          start: 'top+=2px bottom',
+          end: 'center bottom',
+          scrub: 1,
+        },
+      }
+    );
+
+    const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
+
+    const scaleCards = gsap.fromTo(
+      cards,
+      { scale: 0.9 },
+      {
+        scale: 1,
+        transformOrigin: 'center center',
+        scrollTrigger: {
+          trigger: cards,
+          start: 'top bottom',
+          end: 'center bottom',
+          markers: true,
+          id: 'scale',
+        },
+      }
+    );
+
     const pin = gsap.fromTo(
       section2Wrapper.current,
       {
         translateX: 0,
-        scale: 0.9,
       },
       {
-        translateX: '-300vw',
-        scale: 1.2,
+        translateX: '-200vw',
         ease: 'sine.out',
         duration: 1,
         scrollTrigger: {
           trigger: section_2.current,
           start: 'top top',
           end: '1000 bottom',
-          scrub: 0.6,
+          scrub: 10,
           pin: true,
           markers: true,
           id: 'horizontal',
@@ -144,8 +192,22 @@ export default function Index() {
     <div>
       <div className={styles.container}>
         <section className={styles.section_1} ref={section_1}>
-          <div className={styles.roundedSquare1}>Olivier HUYNH</div>
-          <div className={styles.roundedSquare2}>Développeur</div>
+          <div className={`${styles.roundedSquare1} ${mulish.className}`}>
+            OLIVIER HUYNH
+          </div>
+          <div className={`${styles.roundedSquare2} ${spaceMono.className}`}>
+            <span>🌸 Développeur web</span>
+            <span>
+              🌸 Ouvert pour collaborations et contrats de développement web
+            </span>
+          </div>
+          <div className={`${styles.roundedSquare3} ${spaceMono.className}`}>
+            <span>🌼 Spécialisé front-end</span>
+            <span>🌼 JavaScript et TypeScript</span>
+            <span>🌼 React et Next.js</span>
+            <span>🌼 Node.js et PostreSQL</span>
+            <span>🌼 GSAP</span>
+          </div>
 
           {/* <div className={styles.elementVertical} ref={elementVertical}></div> */}
         </section>
@@ -173,7 +235,7 @@ export default function Index() {
           </div>
         </section>
         <section className={styles.section_3} ref={section_3}>
-          <h2>CONTACT</h2>
+          <h2 className={mulish.className}>CONTACT</h2>
         </section>
         {/* </div> */}
       </div>
