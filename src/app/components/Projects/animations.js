@@ -1,21 +1,67 @@
 import { gsap } from 'gsap';
 
-export const titleAnimation = (titleRef) => {
-  return gsap.to(titleRef, {
-    y: 0,
-    duration: 2.5,
-  });
+export const introductionCards = (section2Wrapper, section_2) => {
+  gsap.fromTo(
+    section2Wrapper,
+    {
+      x: 230,
+    },
+    {
+      // scale: 1,
+      x: 0,
+      ease: 'slow(0.7,0.7,false)',
+      transformOrigin: 'center center',
+      scrollTrigger: {
+        trigger: section_2,
+        start: 'top+=2px bottom',
+        end: '70% bottom',
+        scrub: 1,
+        markers: true,
+        id: 'introduction',
+      },
+    }
+  );
 };
 
-export const textAnimation = (textRefs) => {
-  return gsap.to(textRefs, {
-    y: 0,
-    stagger: 0.2,
-  });
+export const scaleCards = (cards) => {
+  gsap.fromTo(
+    cards,
+    { scale: 0.9 },
+    {
+      scale: 1,
+      duration: 1,
+      transformOrigin: 'center center',
+      scrollTrigger: {
+        trigger: cards,
+        scrub: 1,
+        start: '90% bottom',
+        end: 'center bottom',
+        markers: true,
+        id: 'scale',
+      },
+    }
+  );
 };
 
-export const fadeInOverlay = (overlayRef) => {
-  return gsap.to(overlayRef, {
-    opacity: 1,
-  });
+export const pin = (section2Wrapper, section_2) => {
+  gsap.fromTo(
+    section2Wrapper,
+    {
+      translateX: 0,
+    },
+    {
+      translateX: '-200vw',
+      ease: 'sine.out',
+      duration: 1,
+      scrollTrigger: {
+        trigger: section_2,
+        start: 'top top',
+        end: '1000 bottom',
+        scrub: 10,
+        pin: true,
+        markers: true,
+        id: 'horizontal',
+      },
+    }
+  );
 };

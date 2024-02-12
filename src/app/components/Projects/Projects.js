@@ -1,8 +1,43 @@
-import React from 'react';
+import { React, useEffect, useRef } from 'react';
 import styles from './Projects.module.scss';
+import CustomFont from '@next/font/local';
+import { Space_Mono } from '@next/font/google';
+import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { introductionCards, scaleCards, pin } from './animations';
+
+const rightGrotesk = CustomFont({
+  src: '../../fonts/PPRightGrotesk-CompactDark.otf',
+  // variable: '--font-cfont',
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 const Projects = () => {
   const section_2 = useRef(null);
+  const section2Wrapper = useRef(null);
+  const elementHorizontal0 = useRef(null);
+  const elementHorizontal1 = useRef(null);
+  const elementHorizontal2 = useRef(null);
+  const elementHorizontal3 = useRef(null);
+  const elementHorizontal4 = useRef(null);
+  const elementHorizontal5 = useRef(null);
+  const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline();
+    let ctx = gsap.context(() => {
+      tl.add(introductionCards(section2Wrapper.current, section_2.current));
+      tl.add(scaleCards(cards));
+      tl.add(pin(section2Wrapper.current, section_2.current));
+    }, []);
+  });
 
   return (
     <div>

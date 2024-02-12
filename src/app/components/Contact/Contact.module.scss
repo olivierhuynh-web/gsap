@@ -1,0 +1,15 @@
+.section_3 {
+  position: absolute;
+  top: 100vh;
+  right: -100%; /* Déplace la section hors de l'écran vers la droite */
+  width: 100%; /* Assure que la section prend toute la largeur de l'écran */
+  height: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  h2 {
+    color: pink;
+    margin-left: 10%;
+    font-size: 45px;
+  }
+}
