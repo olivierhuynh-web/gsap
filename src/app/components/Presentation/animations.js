@@ -15,6 +15,10 @@ export const revealText = (descriptionRoundedSquares) => {
   );
 };
 
+export const toGreen = (greenDot) => {
+  gsap.to(greenDot, { color: 'green', delay: 1, duration: 0.01 });
+};
+
 export const parallax = (
   roundedSquare1,
   section_1,

@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 // ===============================================
 
 // ==================== IMPORT ANIMATION ====================
-import { parallax, revealText } from './animations';
+import { revealText, toGreen, parallax } from './animations';
 // ===============================================
 
 // ==================== IMPORT STYLES ====================
@@ -33,10 +33,12 @@ const Presentation = ({ timeline }) => {
   const descriptionRoundedSquares = gsap.utils.toArray(
     `.${styles.description}`
   );
+  const greenDot = useRef(null);
   // ===============================================
 
   useEffect(() => {
     revealText(descriptionRoundedSquares);
+    toGreen(greenDot.current);
 
     timeline &&
       timeline.add(
@@ -75,8 +77,10 @@ const Presentation = ({ timeline }) => {
       >
         <div className={styles.descriptionWrapper}>
           <span className={styles.description}>
-            <span>●</span> Ouvert pour collaborations et contrats de
-            développement web
+            <div className={styles.greendot} ref={greenDot}>
+              ●
+            </div>{' '}
+            Ouvert pour collaborations et contrats de développement web
           </span>{' '}
         </div>
       </div>

@@ -1,15 +1,29 @@
 .section_3 {
-  position: absolute;
-  top: 100vh;
-  right: -100%; /* Déplace la section hors de l'écran vers la droite */
-  width: 100%; /* Assure que la section prend toute la largeur de l'écran */
-  height: 100%;
-  background-color: black;
-  display: flex;
-  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: darkgray;
+  padding-top: 10%;
+
   h2 {
-    color: pink;
+    color: #efefef;
     margin-left: 10%;
     font-size: 45px;
+  }
+
+  .horizontalBar {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 5px;
+    background-color: black;
+  }
+
+  .verticalBar {
+    position: absolute;
+    left: 86%;
+    width: 5px;
+    height: 250px;
+    background-color: black;
   }
 }

@@ -68,6 +68,10 @@
   z-index: 3;
   span {
     display: block;
+    .greendot {
+      color: black;
+      display: inline;
+    }
   }
 }
 
