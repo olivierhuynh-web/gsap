@@ -1,43 +1,86 @@
-import React, { useRef } from 'react';
+// ==================== IMPORT BIBLIOTHEQUES ====================
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// ===============================================
+
+// ==================== IMPORT ANIMATION ====================
+import { parallax, revealText } from './animations';
+// ===============================================
+
+// ==================== IMPORT STYLES ====================
 import styles from './Presentation.module.scss';
-
 import CustomFont from '@next/font/local';
-
 const rightGrotesk = CustomFont({
   src: '../../fonts/PPRightGrotesk-CompactDark.otf',
 });
-
 import { Space_Mono } from '@next/font/google';
-
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
 });
+// ===============================================
 
-const Presentation = () => {
+//! ==================== COMPOSANT ====================
+
+const Presentation = ({ timeline }) => {
+  // ==================== SELECTEURS ====================
   const section_1 = useRef(null);
+  const roundedSquare1 = useRef(null);
+  const roundedSquare2 = useRef(null);
+  const roundedSquare3 = useRef(null);
+  const descriptionRoundedSquares = gsap.utils.toArray(
+    `.${styles.description}`
+  );
+  // ===============================================
 
+  useEffect(() => {
+    revealText(descriptionRoundedSquares);
+
+    timeline &&
+      timeline.add(
+        parallax(
+          roundedSquare1.current,
+          section_1.current,
+          roundedSquare2.current,
+          roundedSquare3.current
+        )
+      );
+  }, [timeline]);
   return (
-    <div>
-      <section className={styles.section_1} ref={section_1}>
-        <div className={`${styles.roundedSquare1} ${rightGrotesk.className}`}>
-          Olivier HUYNH
+    <section className={styles.section_1} ref={section_1}>
+      <div
+        className={`${styles.roundedSquare1} ${rightGrotesk.className}`}
+        ref={roundedSquare1}
+      >
+        <div className={styles.titleWrapper}>
+          <h2>Olivier HUYNH</h2>
         </div>
-        <div className={`${styles.roundedSquare2} ${spaceMono.className}`}>
-          <span>🌸 Développeur web</span>
-          <span>
-            🌸 Ouvert pour collaborations et contrats de développement web
-          </span>
+      </div>
+      <div
+        className={`${styles.roundedSquare2} ${spaceMono.className}`}
+        ref={roundedSquare2}
+      >
+        <div className={styles.descriptionWrapper}>
+          <span className={styles.description}>→ Développeur web</span>
         </div>
-        <div className={`${styles.roundedSquare3} ${spaceMono.className}`}>
-          <span>🌼 Spécialisé front-end</span>
-          <span>🌼 JavaScript et TypeScript</span>
-          <span>🌼 React et Next.js</span>
-          <span>🌼 Node.js et PostreSQL</span>
-          <span>🌼 GSAP</span>
+        <div className={styles.descriptionWrapper}>
+          <span className={styles.description}>→ Spécialisé front-end</span>
         </div>
-      </section>
-    </div>
+      </div>
+      <div
+        className={`${styles.roundedSquare3} ${spaceMono.className}`}
+        ref={roundedSquare3}
+      >
+        <div className={styles.descriptionWrapper}>
+          <span className={styles.description}>
+            <span>●</span> Ouvert pour collaborations et contrats de
+            développement web
+          </span>{' '}
+        </div>
+      </div>
+    </section>
   );
 };
 

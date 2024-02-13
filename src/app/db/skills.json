@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Design",
+    "items": [
+      { "name": "figma", "logo": "./images/logo/figma_rainbow_logo.svg" },
+      { "name": "tailwind", "logo": "./images/logo/tailwind_logo.svg" }
+    ]
+  },
+  {
+    "title": "Front-end",
+    "items": [
+      { "name": "typescript", "logo": "./images/logo/typescript_logo.svg" },
+      { "name": "gsap", "logo": "./images/logo/gsap_logo.svg" },
+      { "name": "react", "logo": "./images/logo/react_logo.svg" }
+    ]
+  },
+  {
+    "title": "Back-end",
+    "items": [
+      { "name": "node.js", "logo": "./images/logo/nodejs_logo.svg" },
+      { "name": "postgresql", "logo": "./images/logo/postgresql_logo.svg" }
+    ]
+  },
+  {
+    "title": "Autres",
+    "items": [
+      { "name": "git & github", "logo": "./images/logo/github_logo.svg" },
+      { "name": "vercel", "logo": "./images/logo/vercel_logo.svg" }
+    ]
+  }
+]

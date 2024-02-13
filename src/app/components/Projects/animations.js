@@ -53,15 +53,16 @@ export const pin = (section2Wrapper, section_2) => {
       translateX: '-200vw',
       ease: 'sine.out',
       duration: 1,
-      scrollTrigger: {
-        trigger: section_2,
-        start: 'top top',
-        end: '1000 bottom',
-        scrub: 10,
-        pin: true,
-        markers: true,
-        id: 'horizontal',
-      },
+      // scrollTrigger: {
+      //   trigger: section_2,
+      //   start: 'top top',
+      //   end: '1000 bottom',
+      //   scrub: 10,
+      //   pin: true,
+      //   pinSpacing: false,
+      //   markers: true,
+      //   id: 'horizontal',
+      // },
     }
   );
 };

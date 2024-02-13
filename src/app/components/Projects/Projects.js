@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // ==================== IMPORT ANIMATIONS + DATA ====================
 import { introductionCards, scaleCards, pin } from './animations';
-import data from '../../db/data.json';
+import data from '../../db/projects.json';
 
 // ===============================================
 
@@ -49,40 +49,38 @@ const Projects = () => {
   });
 
   return (
-    <div>
-      <section className={styles.section_2} ref={section_2}>
-        <div className={styles.section_2__wrapper} ref={section2Wrapper}>
-          <div></div>
-          {data.projects.map((project) => (
-            <div className={styles.horizontalElement} ref={elementHorizontal0}>
-              {/* <div className='card'> */}
-              <div className={styles.image_wrapper}>
-                <Image
-                  src='https://picsum.photos/500/300/?image=10'
-                  width={500}
-                  height={300}
-                  alt='Picture of the author'
-                  className={styles.card_image}
-                />
-              </div>
-              <div className={styles.card_content}>
-                <h3
-                  className={`
+    <section className={styles.section_2} ref={section_2}>
+      <div className={styles.section_2__wrapper} ref={section2Wrapper}>
+        <div></div>
+        {data.projects.map((project) => (
+          <div className={styles.horizontalElement} ref={elementHorizontal0}>
+            {/* <div className='card'> */}
+            <div className={styles.image_wrapper}>
+              <Image
+                src='https://picsum.photos/500/300/?image=10'
+                width={500}
+                height={300}
+                alt='Picture of the author'
+                className={styles.card_image}
+              />
+            </div>
+            <div className={styles.card_content}>
+              <h3
+                className={`
                       ${styles.card_title}
                        ${rightGrotesk.className}`}
-                >
-                  {project.name}
-                </h3>
-                <p className={spaceMono.className}>
-                  Demo of pixel perfect pure CSS simple responsive card grid
-                  layout
-                </p>
-              </div>
+              >
+                {project.name}
+              </h3>
+              <p className={spaceMono.className}>
+                Demo of pixel perfect pure CSS simple responsive card grid
+                layout
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
