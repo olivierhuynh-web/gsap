@@ -72,10 +72,7 @@ const Projects = () => {
               >
                 {project.name}
               </h3>
-              <p className={spaceMono.className}>
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
+              <p className={spaceMono.className}>{project.description}</p>
             </div>
           </div>
         ))}
