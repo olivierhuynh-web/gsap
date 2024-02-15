@@ -35,10 +35,12 @@ const Projects = () => {
   const elementHorizontal3 = useRef(null);
   const elementHorizontal4 = useRef(null);
   const elementHorizontal5 = useRef(null);
-  const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
+  // const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
   // ===============================================
 
   useEffect(() => {
+    const cards = gsap.utils.toArray(`.${styles.horizontalElement}`);
+
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
     let ctx = gsap.context(() => {
@@ -53,7 +55,11 @@ const Projects = () => {
       <div className={styles.section_2__wrapper} ref={section2Wrapper}>
         <div></div>
         {data.projects.map((project) => (
-          <div className={styles.horizontalElement} ref={elementHorizontal0}>
+          <div
+            className={styles.horizontalElement}
+            ref={elementHorizontal0}
+            key={project.id}
+          >
             {/* <div className='card'> */}
             <div className={styles.image_wrapper}>
               <Image

@@ -30,13 +30,14 @@ const Presentation = ({ timeline }) => {
   const roundedSquare1 = useRef(null);
   const roundedSquare2 = useRef(null);
   const roundedSquare3 = useRef(null);
-  const descriptionRoundedSquares = gsap.utils.toArray(
-    `.${styles.description}`
-  );
+
   const greenDot = useRef(null);
   // ===============================================
 
   useEffect(() => {
+    const descriptionRoundedSquares = gsap.utils.toArray(
+      `.${styles.description}`
+    );
     revealText(descriptionRoundedSquares);
     toGreen(greenDot.current);
 
