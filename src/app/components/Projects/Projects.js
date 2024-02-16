@@ -43,12 +43,11 @@ const Projects = () => {
 
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
-    let ctx = gsap.context(() => {
-      tl.add(introductionCards(section2Wrapper.current, section_2.current));
-      tl.add(scaleCards(cards));
-      tl.add(pin(section2Wrapper.current, section_2.current));
-    }, []);
-  });
+
+    tl.add(introductionCards(section2Wrapper.current, section_2.current));
+    tl.add(scaleCards(cards));
+    tl.add(pin(section2Wrapper.current, section_2.current));
+  }, []);
 
   return (
     <section className={styles.section_2} ref={section_2}>
