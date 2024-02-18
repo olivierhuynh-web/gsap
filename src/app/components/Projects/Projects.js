@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // ==================== IMPORT ANIMATIONS + DATA ====================
 import { introductionCards, scaleCards, pin } from './animations';
 import data from '../../db/projects.json';
-
 // ===============================================
 
 // ==================== IMPORT STYLES ====================
@@ -37,7 +36,7 @@ const Projects = () => {
   const elementHorizontal5 = useRef(null);
   // const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
   // ===============================================
-
+  //test
   useEffect(() => {
     const cards = gsap.utils.toArray(`.${styles.horizontalElement}`);
 
