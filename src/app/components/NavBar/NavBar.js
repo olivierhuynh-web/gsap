@@ -36,7 +36,7 @@ const NavBar = () => {
       <div className={styles.container__links}>
         <ul>
           <li>
-            <a href='#presentation'>Presentation</a>
+            <a href='#presentation'>Présentation</a>
           </li>
           <li>
             <a href='#projets'>Projets</a>
