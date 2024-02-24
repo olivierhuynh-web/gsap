@@ -52,7 +52,7 @@ const Presentation = ({ timeline }) => {
       );
   }, [timeline]);
   return (
-    <section className={styles.section_1} ref={section_1}>
+    <section className={styles.section_1} ref={section_1} id='presentation'>
       <div
         className={`${styles.roundedSquare1} ${rightGrotesk.className}`}
         ref={roundedSquare1}

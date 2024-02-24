@@ -20,11 +20,12 @@ const Contact = ({ timeline }) => {
 
   return (
     <div>
-      <section className={styles.section_3} ref={section_3}>
-        <h2 className={rightGrotesk.className}>Comment se contacter ?</h2>
+      <section className={styles.section_3} ref={section_3} id='contact'>
+        <h2 className={rightGrotesk.className}>Contact</h2>
         <div className={styles.horizontalBar} ref={horizontalBar}>
           <div className={styles.verticalBar} ref={verticalBar}></div>
         </div>
+        <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
       </section>
     </div>
   );

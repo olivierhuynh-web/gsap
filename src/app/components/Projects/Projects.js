@@ -49,7 +49,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section className={styles.section_2} ref={section_2}>
+    <section className={styles.section_2} ref={section_2} id='projets'>
       <div className={styles.section_2__wrapper} ref={section2Wrapper}>
         <div></div>
         {data.projects.map((project) => (

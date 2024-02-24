@@ -8,6 +8,7 @@
   h2 {
     color: #efefef;
     margin-left: 10%;
+    margin-top: 10%;
     font-size: 45px;
   }
 
@@ -25,5 +26,13 @@
     width: 5px;
     height: 250px;
     background-color: black;
+  }
+
+  a {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    // color: #efefef;
+    font-size: 20px;
   }
 }

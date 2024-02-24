@@ -1,0 +1,37 @@
+.container {
+  position: fixed;
+  background-color: black;
+  height: 3vh;
+  width: 100%;
+  top: 0;
+  &__links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    ul {
+      padding: 0; /* Supprime le padding par défaut de la liste */
+      margin: 0; /* Supprime la marge par défaut de la liste */
+      display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
+      align-items: center; /* Aligne les éléments verticalement au centre */
+      li {
+        list-style: none;
+        padding: 0 1rem;
+        white-space: nowrap; /* Empêche les éléments li de passer à la ligne */
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .socialMedia__container {
+    position: absolute;
+    background-color: red;
+    height: 100%;
+    width: auto;
+    left: 1%;
+    display: flex;
+    align-items: center;
+  }
+}
