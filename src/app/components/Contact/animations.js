@@ -49,15 +49,3 @@ export const slideContact = (link, section3) => {
     }
   );
 };
-
-// gsap.fromTo(
-//   descriptionRoundedSquares,
-//   { y: 100, autoAlpha: 0 },
-//   {
-//     y: 0,
-//     autoAlpha: 1,
-//     duration: 0.4,
-//     stagger: 0.2,
-//     ease: 'power2.inOut',
-//   }
-// );
