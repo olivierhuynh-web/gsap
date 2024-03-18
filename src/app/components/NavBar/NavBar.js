@@ -23,14 +23,16 @@ const NavBar = () => {
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.socialMedia__container}>
         <div>
-          <Image
-            src='/images/logo/github_logo.svg'
-            width={15}
-            height={15}
-            alt='github logo'
-            // className={styles.card_image}
-          ></Image>
-          <a>ok</a>
+          <a href='https://github.com/olivierhuynh-web'>
+            <Image
+              src='/images/logo/github_logo.svg'
+              width={15}
+              height={15}
+              alt='github logo'
+              // className={styles.card_image}
+            ></Image>
+            ok
+          </a>
         </div>
       </div>
       <div className={styles.container__links}>

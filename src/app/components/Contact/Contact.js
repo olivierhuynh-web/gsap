@@ -9,12 +9,13 @@ import { gsap } from 'gsap';
 
 const Contact = ({ timeline }) => {
   const section_3 = useRef(null);
-  const horizontalBar = useRef(null);
-  const verticalBar = useRef(null);
+  // const horizontalBar = useRef(null);
+  // const verticalBar = useRef(null);
+  const link = useRef(null);
 
   useEffect(() => {
     if (timeline) {
-      timeline.add(slideContact(horizontalBar.current, section_3.current));
+      timeline.add(slideContact(link.current, section_3.current));
     }
   }, [timeline]);
 
@@ -22,10 +23,14 @@ const Contact = ({ timeline }) => {
     <div>
       <section className={styles.section_3} ref={section_3} id='contact'>
         <h2 className={rightGrotesk.className}>Contact</h2>
-        <div className={styles.horizontalBar} ref={horizontalBar}>
-          <div className={styles.verticalBar} ref={verticalBar}></div>
+        {/* <div className={styles.horizontalBar}>
+          <div className={styles.verticalBar}></div>
+        </div> */}
+        <div className={styles.contactContainer}>
+          <div className={styles.contactLink} ref={link}>
+            <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
+          </div>
         </div>
-        <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
       </section>
     </div>
   );

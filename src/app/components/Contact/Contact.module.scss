@@ -2,7 +2,13 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: darkgray;
+  // background-color: darkgray;
+  background: linear-gradient(
+    to bottom,
+    #a9a9a9,
+    #a9a9a9
+  ); /* Dégradé linéaire initial */
+
   padding-top: 10%;
 
   h2 {
@@ -34,5 +40,16 @@
     left: 10%;
     // color: #efefef;
     font-size: 20px;
+  }
+
+  .contactContainer {
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 25px;
+    width: auto;
+  }
+
+  .contactLink {
+    transform: translateY(100%);
   }
 }
