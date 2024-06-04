@@ -28,10 +28,11 @@ const NavBar = () => {
               src='/images/logo/github_logo.svg'
               width={15}
               height={15}
+              className={` ${styles.githubLogo}`}
               alt='github logo'
               // className={styles.card_image}
             ></Image>
-            ok
+            {/* ok */}
           </a>
         </div>
       </div>

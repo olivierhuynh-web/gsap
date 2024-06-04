@@ -12,10 +12,12 @@
   padding-top: 10%;
 
   h2 {
-    color: #efefef;
+    color: black;
+    height: auto;
     margin-left: 10%;
-    margin-top: 10%;
+    // margin-top: 10%;
     font-size: 45px;
+    // -webkit-text-stroke: 4px black;
   }
 
   .horizontalBar {
@@ -51,5 +53,18 @@
 
   .contactLink {
     transform: translateY(100%);
+  }
+
+  .blackStrip {
+    // margin-top: 10%;
+    height: 5vh;
+    width: 100vw;
+    background-color: white;
+    border-top: solid 5px black;
+    border-bottom: solid 5px black;
+
+    display: flex;
+    align-items: center;
+    // justi
   }
 }

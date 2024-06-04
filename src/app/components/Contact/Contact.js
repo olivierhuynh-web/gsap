@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
 import CustomFont from '@next/font/local';
@@ -15,24 +16,29 @@ const Contact = ({ timeline }) => {
 
   useEffect(() => {
     if (timeline) {
-      timeline.add(slideContact(link.current, section_3.current));
+      // timeline.add(slideContact(link.current, section_3.current));
     }
   }, [timeline]);
 
   return (
-    <div>
-      <section className={styles.section_3} ref={section_3} id='contact'>
+    // <div>
+    <section className={styles.section_3} ref={section_3} id='contact'>
+      {/* <div>test</div> */}
+      <div className={styles.blackStrip}>
+        {/* <div> */}
         <h2 className={rightGrotesk.className}>Contact</h2>
-        {/* <div className={styles.horizontalBar}>
+        {/* </div> */}
+      </div>
+      {/* <div className={styles.horizontalBar}>
           <div className={styles.verticalBar}></div>
         </div> */}
-        <div className={styles.contactContainer}>
-          <div className={styles.contactLink} ref={link}>
-            <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
-          </div>
+      <div className={styles.contactContainer}>
+        <div className={styles.contactLink} ref={link}>
+          <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    // </div>
   );
 };
 

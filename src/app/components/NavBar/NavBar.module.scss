@@ -32,11 +32,15 @@
 
   .socialMedia__container {
     position: absolute;
-    background-color: red;
+    // background-color: red;
     height: 100%;
     width: auto;
     left: 1%;
     display: flex;
     align-items: center;
+  }
+
+  .githubLogo {
+    filter: invert(1);
   }
 }
