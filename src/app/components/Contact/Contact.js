@@ -3,8 +3,10 @@ import React, { useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
 import CustomFont from '@next/font/local';
 import { slideEmail } from './animations';
-const rightGrotesk = CustomFont({
-  src: '../../fonts/PPRightGrotesk-CompactDark.otf',
+import { Space_Mono } from '@next/font/google';
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
 });
 import { gsap } from 'gsap';
 
@@ -29,7 +31,7 @@ const Contact = ({ timeline }) => {
     <section className={styles.section_3} ref={section_3} id='contact'>
       <div className={styles.section_3_wrapper}>
         <div className={styles.roundedSquare}>
-          <h2 className={rightGrotesk.className}>Contact</h2>
+          <h2 className={spaceMono.className}>Contact</h2>
         </div>
 
         <div className={styles.contactContainer} ref={emailBubble}>

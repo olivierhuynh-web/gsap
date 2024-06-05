@@ -15,7 +15,7 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
     },
   });
   gsap.from(contactLink, {
-    color: 'yellow',
+    color: 'black',
     scrollTrigger: {
       trigger: section_3,
       start: 'top center',
