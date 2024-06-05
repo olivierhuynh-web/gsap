@@ -9,7 +9,7 @@
     #a9a9a9
   ); /* Dégradé linéaire initial */
 
-  padding-top: 10%;
+  // padding-top: 10%;
 
   h2 {
     color: black;
@@ -36,14 +36,6 @@
     background-color: black;
   }
 
-  a {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    // color: #efefef;
-    font-size: 20px;
-  }
-
   .contactContainer {
     box-sizing: border-box;
     overflow: hidden;
@@ -51,20 +43,52 @@
     width: auto;
   }
 
-  .contactLink {
-    transform: translateY(100%);
+  .contactContainer {
+    // position: absolute;
+    height: auto;
+    width: auto;
+    background-color: white;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Bordures arrondies de 10px */
+    border: solid 5px black; /* Bordure noire solide de 5px */
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    z-index: 3; /* Niveau de superposition : 2 */
+    // position: relative;
+    // left: -10%;
+    // margin-left: -4%;
+
+    a {
+      font-size: 20px;
+    }
   }
 
-  .blackStrip {
-    // margin-top: 10%;
-    height: 5vh;
-    width: 100vw;
-    background-color: white;
-    border-top: solid 5px black;
-    border-bottom: solid 5px black;
+  .roundedSquare {
+    display: inline-block; /* Pour que la taille s'ajuste au contenu */
+    margin: 0; /* Supprime les marges par défaut */
+    padding-top: 10px;
+    padding-right: 70px;
+    padding-bottom: 10px;
+    padding-left: 20px; /* Ajout de padding pour un espace intérieur autour du texte */
+    background-color: white; /* Couleur de fond : blanc */
+    border-radius: 10px; /* Bordures arrondies de 10px */
+    border: solid 5px black; /* Bordure noire solide de 5px */
+    font-size: 22px; /* Taille de la police : 22px */
+    z-index: 2; /* Niveau de superposition : 2 */
+    h2 {
+      margin: 0;
+    }
+  }
 
+  .section_3_wrapper {
     display: flex;
+    justify-content: center;
     align-items: center;
-    // justi
+    height: 100%;
+    width: 100%;
   }
 }

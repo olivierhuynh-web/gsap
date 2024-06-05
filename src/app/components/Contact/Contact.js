@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
 import CustomFont from '@next/font/local';
-import { slideContact } from './animations';
+import { slideEmail } from './animations';
 const rightGrotesk = CustomFont({
   src: '../../fonts/PPRightGrotesk-CompactDark.otf',
 });
@@ -10,31 +10,35 @@ import { gsap } from 'gsap';
 
 const Contact = ({ timeline }) => {
   const section_3 = useRef(null);
+  const emailBubble = useRef(null);
+  const contactLink = useRef(null);
   // const horizontalBar = useRef(null);
   // const verticalBar = useRef(null);
-  const link = useRef(null);
+  // const link = useRef(null);
 
   useEffect(() => {
     if (timeline) {
-      // timeline.add(slideContact(link.current, section_3.current));
+      timeline.add(
+        slideEmail(emailBubble.current, section_3.current, contactLink.current)
+      );
     }
   }, [timeline]);
 
   return (
     // <div>
     <section className={styles.section_3} ref={section_3} id='contact'>
-      {/* <div>test</div> */}
-      <div className={styles.blackStrip}>
-        {/* <div> */}
-        <h2 className={rightGrotesk.className}>Contact</h2>
-        {/* </div> */}
-      </div>
-      {/* <div className={styles.horizontalBar}>
-          <div className={styles.verticalBar}></div>
-        </div> */}
-      <div className={styles.contactContainer}>
-        <div className={styles.contactLink} ref={link}>
-          <a href='mailto:olivier.huynh@yahoo.fr'>olivier.huynh@yahoo.fr</a>
+      <div className={styles.section_3_wrapper}>
+        <div className={styles.roundedSquare}>
+          <h2 className={rightGrotesk.className}>Contact</h2>
+        </div>
+
+        <div className={styles.contactContainer} ref={emailBubble}>
+          {/* test */}
+          {/* <div className={styles.contactLink} ref={link}> */}
+          <a href='mailto:olivier.huynh@yahoo.fr' ref={contactLink}>
+            olivier.huynh@yahoo.fr
+          </a>
+          {/* </div> */}
         </div>
       </div>
     </section>

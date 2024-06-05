@@ -22,19 +22,22 @@ const NavBar = () => {
   return (
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.socialMedia__container}>
-        <div>
-          <a href='https://github.com/olivierhuynh-web'>
-            <Image
-              src='/images/logo/github_logo.svg'
-              width={15}
-              height={15}
-              className={` ${styles.githubLogo}`}
-              alt='github logo'
-              // className={styles.card_image}
-            ></Image>
-            {/* ok */}
-          </a>
-        </div>
+        {/* <div className={styles.githubLogoWrapper}> */}
+        <a
+          href='https://github.com/olivierhuynh-web'
+          className={styles.githubLogoWrapper}
+        >
+          <Image
+            src='/images/logo/github_logo.svg'
+            width={15}
+            height={15}
+            className={` ${styles.githubLogo}`}
+            alt='github logo'
+            // className={styles.card_image}
+          ></Image>
+          {/* ok */}
+        </a>
+        {/* </div> */}
       </div>
       <div className={styles.container__links}>
         <ul>

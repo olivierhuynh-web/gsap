@@ -40,7 +40,15 @@
     align-items: center;
   }
 
+  .githubLogoWrapper {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto;
+  }
+
   .githubLogo {
     filter: invert(1);
+    height: auto;
   }
 }

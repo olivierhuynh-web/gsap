@@ -1,7 +1,9 @@
 {
   "projects": [
     { "id": 1, "name": "MAMS ",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 2, "name": "WhichAlbum", "email": "jane@example.com" },
     { "id": 2, "name": "WhichAlbum", "email": "jane@example.com" }
+
   ]
 }
 
