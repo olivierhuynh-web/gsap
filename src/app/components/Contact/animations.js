@@ -26,3 +26,20 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
     },
   });
 };
+
+export const toBlue = (blueDot, section_3) => {
+  gsap.to(blueDot, {
+    scrollTrigger: {
+      trigger: section_3,
+      // start: ' center',
+      // end: 'bottom center',
+      // scrub: true,
+      // markers: true,
+      id: 'YOYOYOYOYOYOYOYOYO',
+      markers: true,
+    },
+    color: 'blue',
+    delay: 1,
+    duration: 0.01,
+  });
+};
