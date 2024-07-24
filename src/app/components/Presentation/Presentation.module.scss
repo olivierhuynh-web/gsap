@@ -42,7 +42,7 @@
   height: auto;
   width: 400px;
   background-color: white;
-  margin-left: -17%;
+  margin-left: -13%;
   margin-top: 20vh;
   border-radius: 10px;
   border: solid 5px black;
@@ -61,8 +61,8 @@
   height: auto;
   width: 400px;
   background-color: white;
-  margin-left: 28%;
-  margin-top: 25vh;
+  margin-left: 12%;
+  margin-top: 24vh;
   border-radius: 10px;
   border: solid 5px black;
   font-size: 22px;
@@ -100,14 +100,11 @@
 // VERSION MOBILE
 
 @media (max-width: 1000px) {
-  .roundedSquare1 {
-    // height: 50px;
-  }
   .roundedSquare2 {
-    margin-left: -3%;
+    margin-left: -5%;
   }
   .roundedSquare3 {
-    margin-left: 3%;
+    margin-left: 5%;
     margin-top: 26vh;
   }
 }

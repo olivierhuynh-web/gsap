@@ -17,7 +17,7 @@ import { gsap } from 'gsap';
 const Contact = ({ timeline }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const section_3 = useRef(null);
+  const section3 = useRef(null);
   const emailBubble = useRef(null);
   const contactLink = useRef(null);
   const blueDot = useRef(null);
@@ -30,16 +30,16 @@ const Contact = ({ timeline }) => {
       // contactLinkToGreen(contactLink.current);
 
       timeline.add(
-        slideEmail(emailBubble.current, section_3.current, contactLink.current),
-        toBlue(blueDot.current, section_3.current)
+        slideEmail(emailBubble.current, section3.current, contactLink.current),
+        toBlue(blueDot.current, section3.current)
       );
     }
   }, [timeline]);
 
   return (
     // <div>
-    <section className={styles.section_3} ref={section_3} id='contact'>
-      <div className={styles.section_3_wrapper}>
+    <section className={styles.section3} ref={section3} id='contact'>
+      <div className={styles.section3_wrapper}>
         <div className={styles.contactContainer}>
           <div className={`${spaceMono.className} `}>
             {' '}
@@ -49,18 +49,10 @@ const Contact = ({ timeline }) => {
             <span className={styles.contactLabel}>Contact</span>
           </div>
         </div>
-
         <div className={styles.emailContainer} ref={emailBubble}>
-          {/* test */}
-          {/* <div className={styles.contactLink} ref={link}> */}
-          <a
-            href='mailto:olivier.huynh@yahoo.fr'
-            ref={contactLink}
-            // onMouseEnter={contactLinkToGreen}
-          >
+          <a href='mailto:olivier.huynh@yahoo.fr' ref={contactLink}>
             olivier.huynh@yahoo.fr
           </a>
-          {/* </div> */}
         </div>
       </div>
     </section>

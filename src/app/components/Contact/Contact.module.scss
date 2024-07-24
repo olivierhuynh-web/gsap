@@ -1,31 +1,15 @@
-.section_3 {
+.section3 {
   position: relative;
   height: 100vh;
   width: 100vw;
-  // background-color: darkgray;
-  background: linear-gradient(
-    to bottom,
-    #a9a9a9,
-    #a9a9a9
-  ); /* Dégradé linéaire initial */
+  background: linear-gradient(to bottom, #a9a9a9, #a9a9a9);
 
-  .section_3_wrapper {
+  .section3_wrapper {
     display: flex;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  // padding-top: 10%;
-
-  h2 {
-    color: black;
-    height: auto;
-    margin-left: 10%;
-    // margin-top: 10%;
-    font-size: 30px;
-    // -webkit-text-stroke: 4px black;
+    height: 100%;
+    width: 100%;
   }
 
   .contactContainer {
@@ -37,56 +21,30 @@
     justify-content: center;
     margin-bottom: 40px;
     padding: 5px 70px 45px 20px;
-    background-color: white; /* Couleur de fond : blanc */
-    border-radius: 10px; /* Bordures arrondies de 10px */
-    border: solid 5px black; /* Bordure noire solide de 5px */
-    font-size: 22px; /* Taille de la police : 22px */
-    z-index: 2; /* Niveau de superposition : 2 */
+    background-color: white;
+    border-radius: 10px;
+    border: solid 5px black;
+    font-size: 22px;
+    z-index: 2;
   }
 
   .emailContainer {
-    // position: absolute;
-    // right: 70px;
     height: auto;
     width: auto;
     background-color: white;
     display: inline-block;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* Bordures arrondies de 10px */
-    border: solid 5px black; /* Bordure noire solide de 5px */
+    border-radius: 10px;
+    border: solid 5px black;
     padding-top: 10px;
     padding-bottom: 10px;
-
     padding-right: 20px;
     padding-left: 20px;
-    z-index: 3; /* Niveau de superposition : 2 */
+    z-index: 3;
     font-size: 20px;
-
-    // position: relative;
-    // left: -10%;
-    // margin-left: -4%;
-
     a {
       font-size: 20px;
-    }
-  }
-
-  .roundedSquare {
-    // display: inline-block; /* Pour que la taille s'ajuste au contenu */
-    margin: 0; /* Supprime les marges par défaut */
-    // padding-top: 5%;
-    // padding-bottom: 5px;
-
-    padding-right: 70px;
-    padding-left: 20px; /* Ajout de padding pour un espace intérieur autour du texte */
-    background-color: white; /* Couleur de fond : blanc */
-    border-radius: 10px; /* Bordures arrondies de 10px */
-    border: solid 5px black; /* Bordure noire solide de 5px */
-    font-size: 22px; /* Taille de la police : 22px */
-    z-index: 2; /* Niveau de superposition : 2 */
-    h2 {
-      margin: 0;
     }
   }
 }
@@ -108,7 +66,8 @@
 // VERSION MOBILE
 
 @media (max-width: 1000px) {
-  .roundedSquare {
-    margin-right: 0px;
+  .section3_wrapper {
+    // padding-left: 30px;
+    padding: 0 30px;
   }
 }
