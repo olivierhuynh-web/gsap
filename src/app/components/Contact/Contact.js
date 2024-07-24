@@ -1,8 +1,12 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
 import CustomFont from '@next/font/local';
-import { slideEmail, toBlue } from './animations';
+import {
+  slideEmail,
+  toBlue,
+  // contactLinkToGreen
+} from './animations';
 import { Space_Mono } from '@next/font/google';
 const spaceMono = Space_Mono({
   subsets: ['latin'],
@@ -11,6 +15,8 @@ const spaceMono = Space_Mono({
 import { gsap } from 'gsap';
 
 const Contact = ({ timeline }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const section_3 = useRef(null);
   const emailBubble = useRef(null);
   const contactLink = useRef(null);
@@ -21,6 +27,8 @@ const Contact = ({ timeline }) => {
 
   useEffect(() => {
     if (timeline) {
+      // contactLinkToGreen(contactLink.current);
+
       timeline.add(
         slideEmail(emailBubble.current, section_3.current, contactLink.current),
         toBlue(blueDot.current, section_3.current)
@@ -45,7 +53,11 @@ const Contact = ({ timeline }) => {
         <div className={styles.emailContainer} ref={emailBubble}>
           {/* test */}
           {/* <div className={styles.contactLink} ref={link}> */}
-          <a href='mailto:olivier.huynh@yahoo.fr' ref={contactLink}>
+          <a
+            href='mailto:olivier.huynh@yahoo.fr'
+            ref={contactLink}
+            // onMouseEnter={contactLinkToGreen}
+          >
             olivier.huynh@yahoo.fr
           </a>
           {/* </div> */}

@@ -43,3 +43,11 @@ export const toBlue = (blueDot, section_3) => {
     duration: 0.01,
   });
 };
+
+// export const contactLinkToGreen = (contactLink) => {
+//   gsap.to(contactLink, {
+//     color: 'green',
+//     duration: 0.7,
+//     onStart: console.log('fct'),
+//   });
+// };

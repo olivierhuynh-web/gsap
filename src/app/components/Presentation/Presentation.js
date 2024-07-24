@@ -53,36 +53,38 @@ const Presentation = ({ timeline }) => {
   }, [timeline]);
   return (
     <section className={styles.section_1} ref={section_1} id='presentation'>
-      <div
-        className={`${styles.roundedSquare1} ${rightGrotesk.className}`}
-        ref={roundedSquare1}
-      >
-        <div className={styles.titleWrapper}>
-          <h2>Olivier HUYNH</h2>
+      <div className={styles.section_1wrapper}>
+        <div
+          className={`${styles.roundedSquare1} ${rightGrotesk.className}`}
+          ref={roundedSquare1}
+        >
+          <div className={styles.titleWrapper}>
+            <h2>Olivier HUYNH</h2>
+          </div>
         </div>
-      </div>
-      <div
-        className={`${styles.roundedSquare2} ${spaceMono.className}`}
-        ref={roundedSquare2}
-      >
-        <div className={styles.descriptionWrapper}>
-          <span className={styles.description}>→ Développeur web</span>
+        <div
+          className={`${styles.roundedSquare2} ${spaceMono.className}`}
+          ref={roundedSquare2}
+        >
+          <div className={styles.descriptionWrapper}>
+            <span className={styles.description}>→ Développeur web</span>
+          </div>
+          <div className={styles.descriptionWrapper}>
+            <span className={styles.description}>→ Spécialisé front-end</span>
+          </div>
         </div>
-        <div className={styles.descriptionWrapper}>
-          <span className={styles.description}>→ Spécialisé front-end</span>
-        </div>
-      </div>
-      <div
-        className={`${styles.roundedSquare3} ${spaceMono.className}`}
-        ref={roundedSquare3}
-      >
-        <div className={styles.descriptionWrapper}>
-          <span className={styles.description}>
-            <div className={styles.greendot} ref={greenDot}>
-              ●
-            </div>{' '}
-            Ouvert pour collaborations et contrats de développement web
-          </span>{' '}
+        <div
+          className={`${styles.roundedSquare3} ${spaceMono.className}`}
+          ref={roundedSquare3}
+        >
+          <div className={styles.descriptionWrapper}>
+            <span className={styles.description}>
+              <div className={styles.greendot} ref={greenDot}>
+                ●
+              </div>{' '}
+              Ouvert pour collaborations et contrats de développement web
+            </span>{' '}
+          </div>
         </div>
       </div>
     </section>
