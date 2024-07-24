@@ -59,7 +59,7 @@ const Presentation = ({ timeline }) => {
           ref={roundedSquare1}
         >
           <div className={styles.titleWrapper}>
-            <h2>Olivier HUYNH/</h2>
+            <h2>Olivier HUYNH</h2>
           </div>
         </div>
         <div

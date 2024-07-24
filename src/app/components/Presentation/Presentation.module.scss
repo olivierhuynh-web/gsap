@@ -91,7 +91,7 @@
   color: black;
 }
 
-.descriptionWrapper {
+.section_1wrapper {
   overflow: hidden;
   height: auto;
   width: auto;
@@ -100,11 +100,31 @@
 // VERSION MOBILE
 
 @media (max-width: 1000px) {
+  .section_1wrapper {
+    overflow: hidden;
+    height: 100wh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  .roundedSquare1 {
+    width: 80%;
+    height: 150px;
+    .titleWrapper {
+      // background-color: red;
+      h2 {
+        font-size: 50px;
+      }
+    }
+  }
   .roundedSquare2 {
+    width: 70%;
     margin-left: -5%;
   }
   .roundedSquare3 {
+    width: 70%;
     margin-left: 5%;
-    margin-top: 26vh;
+    margin-top: 28vh;
+    overflow: hidden;
   }
 }
