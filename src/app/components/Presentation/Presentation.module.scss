@@ -128,3 +128,13 @@
     overflow: hidden;
   }
 }
+
+@media (max-width: 600px) {
+  .roundedSquare1 {
+    .titleWrapper {
+      h2 {
+        font-size: 40px;
+      }
+    }
+  }
+}
