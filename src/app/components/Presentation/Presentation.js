@@ -1,5 +1,5 @@
 // ==================== IMPORT BIBLIOTHEQUES ====================
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -32,6 +32,24 @@ const Presentation = ({ timeline }) => {
   const roundedSquare3 = useRef(null);
 
   const greenDot = useRef(null);
+  // ===============================================
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 1000);
+    };
+
+    // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
+    window.addEventListener('resize', checkScreenSize);
+
+    // Nettoyer l'écouteur d'événements
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
   // ===============================================
 
   useEffect(() => {
@@ -70,7 +88,9 @@ const Presentation = ({ timeline }) => {
             <span className={styles.description}>→ Développeur web</span>
           </div>
           <div className={styles.descriptionWrapper}>
-            <span className={styles.description}>→ Spécialisé front-end</span>
+            <span className={styles.description}>
+              → {!isSmallScreen && 'Spécialisé'} front-end
+            </span>
           </div>
         </div>
         <div
