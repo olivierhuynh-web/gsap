@@ -47,6 +47,17 @@
       font-size: 20px;
     }
   }
+  .socialContainer {
+    position: absolute;
+    top: 52%;
+    // background-color: white;
+    // border: solid 5px black;
+    // border-radius: 10px;
+    // padding: 10px 20px 10px 20px;
+    .github_logo {
+      fill: #0000b3; /* Couleur bleue #0000B3 */
+    }
+  }
 }
 
 .bluedot {

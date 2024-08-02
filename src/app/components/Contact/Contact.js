@@ -2,9 +2,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
 import CustomFont from '@next/font/local';
+import Image from 'next/image';
+
 import {
   slideEmail,
   toBlue,
+  slideSocial,
   // contactLinkToGreen
 } from './animations';
 import { Space_Mono } from '@next/font/google';
@@ -21,6 +24,7 @@ const Contact = ({ timeline }) => {
   const emailBubble = useRef(null);
   const contactLink = useRef(null);
   const blueDot = useRef(null);
+  const socialBubble = useRef(null);
   // const horizontalBar = useRef(null);
   // const verticalBar = useRef(null);
   // const link = useRef(null);
@@ -31,6 +35,7 @@ const Contact = ({ timeline }) => {
 
       timeline.add(
         slideEmail(emailBubble.current, section3.current, contactLink.current),
+        slideSocial(socialBubble.current, section3.current),
         toBlue(blueDot.current, section3.current)
       );
     }
@@ -53,6 +58,22 @@ const Contact = ({ timeline }) => {
           <a href='mailto:olivier.huynh@yahoo.fr' ref={contactLink}>
             olivier.huynh@yahoo.fr
           </a>
+        </div>
+        <div className={styles.socialContainer} ref={socialBubble}>
+          <Image
+            src='images/logo/github_logo.svg'
+            width={20}
+            height={20}
+            alt='Github logo'
+            className={styles.github_logo}
+          />{' '}
+          {/* <Image
+            src='images/logo/github_logo.svg'
+            width={20}
+            height={20}
+            alt='Github logo'
+            // className={styles.card_image}
+          />{' '} */}
         </div>
       </div>
     </section>

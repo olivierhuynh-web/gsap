@@ -1,4 +1,6 @@
 // ==================== IMPORT BIBLIOTHEQUES ====================
+
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -37,17 +39,20 @@ const Presentation = ({ timeline }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsSmallScreen(window.innerWidth < 1000);
-    };
+    console.log('window.innerWidth', window.innerWidth);
+    if (typeof window !== 'undefined') {
+      const checkScreenSize = () => {
+        setIsSmallScreen(window.innerWidth < 1000);
+      };
 
-    // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
-    window.addEventListener('resize', checkScreenSize);
+      // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
+      window.addEventListener('resize', checkScreenSize);
 
-    // Nettoyer l'écouteur d'événements
-    return () => {
-      window.removeEventListener('resize', checkScreenSize);
-    };
+      // Nettoyer l'écouteur d'événements
+      return () => {
+        window.removeEventListener('resize', checkScreenSize);
+      };
+    }
   }, []);
 
   // ===============================================

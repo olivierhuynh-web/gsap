@@ -1,19 +1,15 @@
-// ==================== IMPORT BIBLIOTHEQUES ====================
-import { React, useEffect, useRef } from 'react';
+import { React, useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// ===============================================
 
-// ==================== IMPORT ANIMATIONS + DATA ====================
 import { introductionCards, scaleCards, pin } from './animations';
 import data from '../../db/projects.json';
-// ===============================================
 
-// ==================== IMPORT STYLES ====================
 import styles from './Projects.module.scss';
 import CustomFont from '@next/font/local';
 import { Space_Mono } from '@next/font/google';
+
 const rightGrotesk = CustomFont({
   src: '../../fonts/PPRightGrotesk-CompactDark.otf',
 });
@@ -21,22 +17,25 @@ const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
 });
-// ===============================================
 
-//! ==================== COMPOSANT ====================
 const Projects = () => {
-  // ==================== SELECTEURS ====================
   const section_2 = useRef(null);
   const section2Wrapper = useRef(null);
-  const elementHorizontal0 = useRef(null);
-  const elementHorizontal1 = useRef(null);
-  const elementHorizontal2 = useRef(null);
-  const elementHorizontal3 = useRef(null);
-  const elementHorizontal4 = useRef(null);
-  const elementHorizontal5 = useRef(null);
-  // const cards = document.querySelectorAll(`.${styles.horizontalElement}`);
-  // ===============================================
-  //test
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 1000);
+    };
+
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
   useEffect(() => {
     const cards = gsap.utils.toArray(`.${styles.horizontalElement}`);
 
@@ -51,35 +50,28 @@ const Projects = () => {
   return (
     <section className={styles.section_2} ref={section_2} id='projets'>
       <div className={styles.section_2__wrapper} ref={section2Wrapper}>
-        <div></div>
-        {data.projects.map((project) => (
-          <div
-            className={styles.horizontalElement}
-            ref={elementHorizontal0}
-            key={project.id}
-          >
-            {/* <div className='card'> */}
-            <div className={styles.image_wrapper}>
-              <Image
-                src='https://picsum.photos/500/300/?image=10'
-                width={500}
-                height={300}
-                alt='Picture of the author'
-                className={styles.card_image}
-              />
+        {!isSmallScreen &&
+          data.projects.map((project) => (
+            <div className={styles.horizontalElement} key={project.id}>
+              <div className={styles.image_wrapper}>
+                <Image
+                  src='https://picsum.photos/500/300/?image=10'
+                  width={500}
+                  height={300}
+                  alt='Picture of the author'
+                  className={styles.card_image}
+                />
+              </div>
+              <div className={styles.card_content}>
+                <h3
+                  className={`${styles.card_title} ${rightGrotesk.className}`}
+                >
+                  {project.name}
+                </h3>
+                <p className={spaceMono.className}>{project.description}</p>
+              </div>
             </div>
-            <div className={styles.card_content}>
-              <h3
-                className={`
-                      ${styles.card_title}
-                       ${rightGrotesk.className}`}
-              >
-                {project.name}
-              </h3>
-              <p className={spaceMono.className}>{project.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </section>
   );

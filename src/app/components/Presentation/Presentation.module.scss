@@ -21,6 +21,8 @@
 
   padding-top: 10px;
   z-index: 1;
+  overflow: hidden;
+
   .titleWrapper {
     display: flex;
     justify-content: center;
@@ -49,6 +51,8 @@
   font-size: 22px;
   padding-top: 10px;
   z-index: 2;
+  overflow: hidden;
+
   span {
     display: block;
   }
@@ -68,6 +72,8 @@
   font-size: 22px;
   padding-top: 10px;
   z-index: 3;
+  overflow: hidden;
+
   span {
     display: block;
     .greendot {
@@ -110,6 +116,8 @@
   .roundedSquare1 {
     width: 80%;
     height: 150px;
+    overflow: hidden;
+
     .titleWrapper {
       // background-color: red;
       h2 {
@@ -120,6 +128,7 @@
   .roundedSquare2 {
     width: 70%;
     margin-left: -5%;
+    overflow: hidden;
   }
   .roundedSquare3 {
     width: 70%;

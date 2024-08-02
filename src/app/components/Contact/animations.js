@@ -14,6 +14,7 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
       id: 'email',
     },
   });
+
   gsap.from(contactLink, {
     color: 'black',
     scrollTrigger: {
@@ -23,6 +24,20 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
       scrub: true,
       // markers: true,
       // id: 'email',
+    },
+  });
+};
+
+export const slideSocial = (socialBubble, section_3) => {
+  gsap.to(socialBubble, {
+    y: 45,
+    scrollTrigger: {
+      trigger: section_3,
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      markers: true,
+      id: 'social',
     },
   });
 };
