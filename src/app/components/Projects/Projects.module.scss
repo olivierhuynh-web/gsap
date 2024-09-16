@@ -1,4 +1,4 @@
-.section_2 {
+.section2 {
   height: 100vh;
   width: 100vw;
   background-color: darkgrey;
@@ -6,51 +6,109 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 150px;
-  overflow: hidden;
+  overflow-y: visible;
+  overflow-x: hidden;
   position: relative;
 
   &__wrapper {
+    padding-left: 4%;
     position: absolute;
     left: 0;
-    height: 100vh;
-    width: 3000px;
     display: flex;
     flex-direction: row;
-    // justify-content: center;
     align-items: center;
     gap: 2%;
-    // background-color: #fff;
+
+    &__card {
+      height: 500px;
+      width: 300px;
+      background-color: pink;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      border: solid 5px black;
+      scale: 0.9;
+      padding: 20px;
+      box-sizing: border-box;
+
+      &__image-wrapper {
+        height: 45%;
+        width: 100%;
+        border: 1px solid black;
+        overflow: hidden;
+
+        &__card-image {
+          max-width: 100%;
+          max-height: 100%;
+          display: block;
+          margin: auto;
+        }
+      }
+    }
   }
-}
 
-.horizontalElement {
-  height: 500px;
-  width: 300px;
-  background-color: pink;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  border: solid 5px black;
-  scale: 0.9;
-  padding: 20px;
-}
+  &__card-title {
+    font-size: 30px;
+  }
 
-.image_wrapper {
-  height: 45%;
-  width: 100%;
-  border: 1px solid black;
-  overflow: hidden; /* Assure que le contenu qui dépasse sera caché */
-  // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-}
+  &__card-description {
+    font-size: 12px;
+    margin-top: 5px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
-.cardImage {
-  max-width: 100%; /* Empêche l'image de dépasser la largeur de son conteneur */
-  max-height: 100%; /* Empêche l'image de dépasser la hauteur de son conteneur */
-  display: block; /* Assure que l'image est affichée comme un bloc pour respecter les dimensions spécifiées */
-  margin: auto; /* Centre l'image horizontalement */
-}
+  // VERSION MOBILE
+  @media (max-width: 600px) {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow-y: visible;
 
-.card_title {
-  font-size: 30px;
+    &__wrapper {
+      padding-left: 4%;
+      padding-right: 4%;
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2%;
+      grid-auto-rows: 500px; /* Assure que les lignes ont une hauteur fixe */
+      align-items: start; /* Aligne les éléments au début de la ligne */
+    }
+
+    &__card {
+      height: 100%; /* Utilise toute la hauteur disponible */
+      width: 100%; /* Occupe toute la largeur de la colonne */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    &__card-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    &__card-content {
+      font-size: 14px; /* Ajusté pour la version mobile */
+    }
+
+    &__image-wrapper {
+      width: 100%;
+      height: auto;
+    }
+
+    &__card-description {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
 }

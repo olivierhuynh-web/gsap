@@ -19,8 +19,8 @@ const spaceMono = Space_Mono({
 });
 
 const Projects = () => {
-  const section_2 = useRef(null);
-  const section2Wrapper = useRef(null);
+  const section2Ref = useRef(null);
+  const section2WrapperRef = useRef(null);
 
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
 
@@ -37,42 +37,79 @@ const Projects = () => {
   }, []);
 
   useEffect(() => {
-    const cards = gsap.utils.toArray(`.${styles.horizontalElement}`);
+    const cards = gsap.utils.toArray(`.${styles['section2__card']}`);
 
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
 
-    tl.add(introductionCards(section2Wrapper.current, section_2.current));
+    tl.add(introductionCards(section2WrapperRef.current, section2Ref.current));
     tl.add(scaleCards(cards));
-    tl.add(pin(section2Wrapper.current, section_2.current));
+    tl.add(pin(section2WrapperRef.current, section2Ref.current));
   }, []);
 
   return (
-    <section className={styles.section_2} ref={section_2} id='projets'>
-      <div className={styles.section_2__wrapper} ref={section2Wrapper}>
-        {!isSmallScreen &&
-          data.projects.map((project) => (
-            <div className={styles.horizontalElement} key={project.id}>
-              <div className={styles.image_wrapper}>
+    <section className={styles['section2']} ref={section2Ref} id='projets'>
+      {isSmallScreen ? (
+        <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
+          {data.projects.map((project) => (
+            <div className={styles['section2__wrapper__card']} key={project.id}>
+              <div className={styles['section2__wrapper__card__image-wrapper']}>
                 <Image
                   src='https://picsum.photos/500/300/?image=10'
                   width={500}
                   height={300}
                   alt='Picture of the author'
-                  className={styles.card_image}
+                  className={
+                    styles['section2__wrapper__card__image-wrapper__card-image']
+                  }
                 />
               </div>
-              <div className={styles.card_content}>
+              <div className={styles['section2__wrapper__card__card-content']}>
                 <h3
-                  className={`${styles.card_title} ${rightGrotesk.className}`}
+                  className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
                 >
                   {project.name}
                 </h3>
-                <p className={spaceMono.className}>{project.description}</p>
+                <p
+                  className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
+                >
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}
-      </div>
+        </div>
+      ) : (
+        <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
+          {data.projects.map((project) => (
+            <div className={styles['section2__wrapper__card']} key={project.id}>
+              <div className={styles['section2__wrapper__card__image-wrapper']}>
+                <Image
+                  src='https://picsum.photos/500/300/?image=10'
+                  width={500}
+                  height={300}
+                  alt='Picture of the author'
+                  className={
+                    styles['section2__wrapper__card__image-wrapper__card-image']
+                  }
+                />
+              </div>
+              <div className={styles['section2__wrapper__card__card-content']}>
+                <h3
+                  className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
+                >
+                  {project.name}
+                </h3>
+                <p
+                  className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
+                >
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

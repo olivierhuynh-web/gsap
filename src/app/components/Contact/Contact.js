@@ -59,7 +59,7 @@ const Contact = ({ timeline }) => {
             olivier.huynh@yahoo.fr
           </a>
         </div>
-        <div className={styles.socialContainer} ref={socialBubble}>
+        {/* <div className={styles.socialContainer} ref={socialBubble}>
           <Image
             src='images/logo/github_logo.svg'
             width={20}
@@ -67,14 +67,7 @@ const Contact = ({ timeline }) => {
             alt='Github logo'
             className={styles.github_logo}
           />{' '}
-          {/* <Image
-            src='images/logo/github_logo.svg'
-            width={20}
-            height={20}
-            alt='Github logo'
-            // className={styles.card_image}
-          />{' '} */}
-        </div>
+        </div> */}
       </div>
     </section>
     // </div>

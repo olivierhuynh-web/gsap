@@ -1,13 +1,13 @@
 .container {
   width: 100%;
-  min-height: 200vh;
+  // min-height: 300vh;
   // background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .section2And3Container {
