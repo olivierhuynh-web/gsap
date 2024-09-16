@@ -90,11 +90,16 @@
       align-items: center;
       padding: 10px;
       box-sizing: border-box;
-    }
 
-    &__card-image {
-      max-width: 100%;
-      height: auto;
+      &-image {
+        max-width: 100%;
+        height: auto;
+      }
+
+      &-image {
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     &__card-content {
