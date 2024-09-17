@@ -37,7 +37,7 @@ export const parallax = (
         start: 'top top',
         end: 'bottom top',
         scrub: 1,
-        markers: true,
+        markers: false,
         id: 'parallax',
       },
     }
@@ -53,7 +53,7 @@ export const parallax = (
         start: 'top top',
         end: 'bottom top',
         scrub: 1,
-        markers: true,
+        markers: false,
         id: 'parallax2',
       },
     }
@@ -69,7 +69,7 @@ export const parallax = (
         start: 'top top',
         end: 'bottom top',
         scrub: 1,
-        markers: true,
+        markers: false,
         id: 'parallax3',
       },
     }

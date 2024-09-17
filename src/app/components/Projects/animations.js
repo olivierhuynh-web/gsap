@@ -16,7 +16,7 @@ export const introductionCards = (section2Wrapper, section_2) => {
         start: 'top+=2px bottom',
         end: '70% bottom',
         scrub: 1,
-        markers: true,
+        markers: false,
         id: 'introduction',
       },
     }
@@ -36,7 +36,7 @@ export const scaleCards = (cards) => {
         scrub: 1,
         start: '90% bottom',
         end: 'center bottom',
-        markers: true,
+        markers: false,
         id: 'scale',
       },
     }
