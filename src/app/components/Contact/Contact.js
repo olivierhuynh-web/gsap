@@ -1,19 +1,18 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Contact.module.scss';
-import CustomFont from '@next/font/local';
+import { Inter } from '@next/font/google'; // Importez la police Inter
 import Image from 'next/image';
 
-import {
-  slideEmail,
-  toBlue,
-  slideSocial,
-  // contactLinkToGreen
-} from './animations';
+import { slideEmail, toBlue, slideSocial } from './animations';
 import { Space_Mono } from '@next/font/google';
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
+});
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400'], // Ajoutez d'autres poids si nécessaire
 });
 import { gsap } from 'gsap';
 
@@ -55,7 +54,11 @@ const Contact = ({ timeline }) => {
           </div>
         </div>
         <div className={styles.emailContainer} ref={emailBubble}>
-          <a href='mailto:olivier.huynh@yahoo.fr' ref={contactLink}>
+          <a
+            href='mailto:olivier.huynh@yahoo.fr'
+            ref={contactLink}
+            className={inter.className} // Appliquez la police Inter ici
+          >
             olivier.huynh@yahoo.fr
           </a>
         </div>
