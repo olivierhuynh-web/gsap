@@ -154,15 +154,18 @@
   }
 
   .roundedSquare2 {
-    width: 70%;
-    // margin-top: 5%;
-    margin-left: -10%;
-    overflow: hidden;
+    width: 70%; // Exemple de largeur
+    height: 100px; // Exemple de hauteur, ajustez selon vos besoins
+    // Autres styles nécessaires pour roundedSquare2
   }
+
   .roundedSquare3 {
+    position: absolute;
     width: 70%;
     margin-left: 10%;
-    margin-top: 28vh;
+    top: calc(
+      100px + 20px
+    ); // 100px est la hauteur de roundedSquare2, 20px est la distance désirée entre les deux
     overflow: hidden;
   }
 }
