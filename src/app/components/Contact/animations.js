@@ -23,16 +23,16 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
     },
   });
 
-  // gsap.from(contactLink, {
-  //   color: 'black',
-  //   scrollTrigger: {
-  //     trigger: section_3,
-  //     start: 'top center',
-  //     end: 'bottom center',
-  //     scrub: true,
-  //     markers: false,
-  //   },
-  // });
+  gsap.from(contactLink, {
+    color: 'black',
+    scrollTrigger: {
+      trigger: section_3,
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      markers: false,
+    },
+  });
 };
 
 export const slideSocial = (socialBubble, section_3) => {

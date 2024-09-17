@@ -140,9 +140,11 @@
 
 @media (max-width: 600px) {
   .roundedSquare1 {
-    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+
     .titleWrapper {
-      padding: 0px;
+      // padding-left: 0 20px;
       h2 {
         font-size: 13vw;
         letter-spacing: 0.5px;
