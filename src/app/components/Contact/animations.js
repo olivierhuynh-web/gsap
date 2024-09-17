@@ -3,6 +3,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const slideEmail = (emailBubble, section_3, contactLink) => {
   gsap.registerPlugin(ScrollTrigger);
+
+  if (emailBubble) {
+    emailBubble.style.willChange = 'transform';
+  }
+  if (contactLink) {
+    contactLink.style.willChange = 'color';
+  }
+
   gsap.to(emailBubble, {
     x: -70,
     scrollTrigger: {
@@ -10,7 +18,7 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
       start: 'top center',
       end: 'bottom center',
       scrub: true,
-      markers: true,
+      markers: false, // Désactivez les marqueurs pour éviter les distractions
       id: 'email',
     },
   });
@@ -22,13 +30,18 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
       start: 'top center',
       end: 'bottom center',
       scrub: true,
-      // markers: true,
-      // id: 'email',
+      markers: false,
     },
   });
 };
 
 export const slideSocial = (socialBubble, section_3) => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (socialBubble) {
+    socialBubble.style.willChange = 'transform';
+  }
+
   gsap.to(socialBubble, {
     y: 45,
     scrollTrigger: {
@@ -36,33 +49,27 @@ export const slideSocial = (socialBubble, section_3) => {
       start: 'top center',
       end: 'bottom center',
       scrub: true,
-      markers: true,
+      markers: false,
       id: 'social',
     },
   });
 };
 
 export const toBlue = (blueDot, section_3) => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (blueDot) {
+    blueDot.style.willChange = 'color';
+  }
+
   gsap.to(blueDot, {
     scrollTrigger: {
       trigger: section_3,
-      // start: ' center',
-      // end: 'bottom center',
-      // scrub: true,
-      // markers: true,
       id: 'YOYOYOYOYOYOYOYOYO',
-      markers: true,
+      markers: false,
     },
     color: 'blue',
     delay: 1,
     duration: 0.01,
   });
 };
-
-// export const contactLinkToGreen = (contactLink) => {
-//   gsap.to(contactLink, {
-//     color: 'green',
-//     duration: 0.7,
-//     onStart: console.log('fct'),
-//   });
-// };
