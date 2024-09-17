@@ -37,79 +37,52 @@ const Projects = () => {
   }, []);
 
   useEffect(() => {
-    const cards = gsap.utils.toArray(`.${styles['section2__card']}`);
+    if (!isSmallScreen) {
+      // Ajoute une condition pour vérifier si l'écran est grand
+      const cards = gsap.utils.toArray(`.${styles['section2__card']}`);
 
-    gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline();
 
-    tl.add(introductionCards(section2WrapperRef.current, section2Ref.current));
-    tl.add(scaleCards(cards));
-    tl.add(pin(section2WrapperRef.current, section2Ref.current));
-  }, []);
+      tl.add(
+        introductionCards(section2WrapperRef.current, section2Ref.current)
+      );
+      tl.add(scaleCards(cards));
+      tl.add(pin(section2WrapperRef.current, section2Ref.current));
+    }
+  }, [isSmallScreen]);
 
   return (
     <section className={styles['section2']} ref={section2Ref} id='projets'>
-      {isSmallScreen ? (
-        <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
-          {data.projects.map((project) => (
-            <div className={styles['section2__wrapper__card']} key={project.id}>
-              <div className={styles['section2__wrapper__card__image-wrapper']}>
-                <Image
-                  src='https://picsum.photos/500/300/?image=10'
-                  width={500}
-                  height={300}
-                  alt='Picture of the author'
-                  className={
-                    styles['section2__wrapper__card__image-wrapper__card-image']
-                  }
-                />
-              </div>
-              <div className={styles['section2__wrapper__card__card-content']}>
-                <h3
-                  className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
-                >
-                  {project.name}
-                </h3>
-                <p
-                  className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
-                >
-                  {project.description}
-                </p>
-              </div>
+      <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
+        {data.projects.map((project) => (
+          <div className={styles['section2__wrapper__card']} key={project.id}>
+            <div className={styles['section2__wrapper__card__image-wrapper']}>
+              <Image
+                src='https://picsum.photos/500/300/?image=10'
+                alt='Picture of the author'
+                width={isSmallScreen ? 500 : 500} // Largeur de l'image
+                height={isSmallScreen ? 100 : 300} // Hauteur de l'image
+                className={
+                  styles['section2__wrapper__card__image-wrapper__card-image']
+                } // Assure-toi que la classe CSS est correcte
+              />
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
-          {data.projects.map((project) => (
-            <div className={styles['section2__wrapper__card']} key={project.id}>
-              <div className={styles['section2__wrapper__card__image-wrapper']}>
-                <Image
-                  src='https://picsum.photos/500/300/?image=10'
-                  width={500}
-                  height={300}
-                  alt='Picture of the author'
-                  className={
-                    styles['section2__wrapper__card__image-wrapper__card-image']
-                  }
-                />
-              </div>
-              <div className={styles['section2__wrapper__card__card-content']}>
-                <h3
-                  className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
-                >
-                  {project.name}
-                </h3>
-                <p
-                  className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
-                >
-                  {project.description}
-                </p>
-              </div>
+            <div className={styles['section2__wrapper__card__card-content']}>
+              <h3
+                className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
+              >
+                {project.name}
+              </h3>
+              <p
+                className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
+              >
+                {project.description}
+              </p>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

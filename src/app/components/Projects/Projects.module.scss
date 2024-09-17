@@ -71,44 +71,41 @@
 
     &__wrapper {
       padding-left: 4%;
-      padding-right: 4%;
       width: 100%;
       position: relative;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2%;
-      grid-auto-rows: 500px; /* Assure que les lignes ont une hauteur fixe */
-      align-items: start; /* Aligne les éléments au début de la ligne */
-    }
+      grid-template-columns: repeat(
+        2,
+        calc(50% - 4%)
+      ); // 2 colonnes avec ajustement pour le padding
+      row-gap: 0; // Supprimer l'espace vertical entre les lignes
+      column-gap: 2%; // Garder l'espace horizontal
+      grid-auto-rows: auto;
+      align-items: start;
 
-    &__card {
-      height: 100%; /* Utilise toute la hauteur disponible */
-      width: 100%; /* Occupe toute la largeur de la colonne */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      box-sizing: border-box;
+      &__card {
+        height: auto; // Hauteur automatique pour s'adapter au contenu
+        width: 100%; // Largeur de 100% de la colonne
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        // background-color: white;
 
-      &-image {
-        max-width: 100%;
-        height: auto;
+        &-image-wrapper {
+          width: 90%;
+          height: 200px; // Hauteur fixe, ajuste selon tes besoins
+          // position: relative; // Position relative pour le conteneur de l'image
+          overflow: hidden; // Empêche le débordement de l'image
+          margin: 2%;
+        }
+
+        &__card-content {
+          font-size: 10px; /* Ajusté pour la version mobile */
+        }
       }
-
-      &-image {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-
-    &__card-content {
-      font-size: 14px; /* Ajusté pour la version mobile */
-    }
-
-    &__image-wrapper {
-      width: 100%;
-      height: auto;
     }
 
     &__card-description {
