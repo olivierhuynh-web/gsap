@@ -8,7 +8,7 @@ import Lenis from '@studio-freight/lenis';
 
 // ==================== IMPORT COMPOSANTS ====================
 import Presentation from './components/Presentation/Presentation';
-import Skills from './components/Skills/Skills';
+// import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 // ===============================================
@@ -67,16 +67,15 @@ export default function Index() {
   }, []);
 
   return (
-    <div>
+    <body>
       <div className={styles.container}>
         <Presentation timeline={timeline} />
         {/* <Skills timeline={timeline} /> */}
 
-        {/* <div className={styles.section2And3Container}> */}
         <Projects timeline={timeline} />
         <Contact timeline={timeline} />
         {/* </div> */}
       </div>
-    </div>
+    </body>
   );
 }

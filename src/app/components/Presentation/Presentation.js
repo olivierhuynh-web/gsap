@@ -1,17 +1,9 @@
-// ==================== IMPORT BIBLIOTHEQUES ====================
-
 'use client';
+// ==================== IMPORT BIBLIOTHEQUES ====================
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// ===============================================
-
-// ==================== IMPORT ANIMATION ====================
 import { revealText, toGreen, parallax } from './animations';
-// ===============================================
-
-// ==================== IMPORT STYLES ====================
 import styles from './Presentation.module.scss';
 import CustomFont from '@next/font/local';
 const rightGrotesk = CustomFont({
@@ -22,58 +14,74 @@ const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
 });
-// ===============================================
+
+// ==================== HOOK POUR VERIFIER LE RENDU CÔTÉ CLIENT ====================
+const useIsClient = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return isClient;
+};
 
 //! ==================== COMPOSANT ====================
-
 const Presentation = ({ timeline }) => {
   // ==================== SELECTEURS ====================
   const section_1 = useRef(null);
   const roundedSquare1 = useRef(null);
   const roundedSquare2 = useRef(null);
   const roundedSquare3 = useRef(null);
-
   const greenDot = useRef(null);
-  // ===============================================
 
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+  // ==================== ÉTAT ====================
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const isClient = useIsClient(); // Vérifie si le rendu est côté client
 
+  // ==================== EFFETS ====================
   useEffect(() => {
-    console.log('window.innerWidth', window.innerWidth);
-    if (typeof window !== 'undefined') {
-      const checkScreenSize = () => {
+    if (isClient) {
+      // Mettre à jour l'état de la taille de l'écran côté client
+      const updateScreenSize = () => {
         setIsSmallScreen(window.innerWidth < 1000);
       };
 
+      // Initialiser l'état de la taille de l'écran
+      updateScreenSize();
+
       // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
-      window.addEventListener('resize', checkScreenSize);
+      window.addEventListener('resize', updateScreenSize);
 
       // Nettoyer l'écouteur d'événements
       return () => {
-        window.removeEventListener('resize', checkScreenSize);
+        window.removeEventListener('resize', updateScreenSize);
       };
     }
-  }, []);
-
-  // ===============================================
+  }, [isClient]);
 
   useEffect(() => {
-    const descriptionRoundedSquares = gsap.utils.toArray(
-      `.${styles.description}`
-    );
-    revealText(descriptionRoundedSquares);
-    toGreen(greenDot.current);
-
-    timeline &&
-      timeline.add(
-        parallax(
-          roundedSquare1.current,
-          section_1.current,
-          roundedSquare2.current,
-          roundedSquare3.current
-        )
+    if (isClient) {
+      const descriptionRoundedSquares = gsap.utils.toArray(
+        `.${styles.description}`
       );
-  }, [timeline]);
+      revealText(descriptionRoundedSquares);
+      toGreen(greenDot.current);
+
+      if (timeline) {
+        timeline.add(
+          parallax(
+            roundedSquare1.current,
+            section_1.current,
+            roundedSquare2.current,
+            roundedSquare3.current
+          )
+        );
+      }
+    }
+  }, [timeline, isClient]);
+
+  // ==================== RENDU ====================
   return (
     <section className={styles.section_1} ref={section_1} id='presentation'>
       <div className={styles.section_1wrapper}>
