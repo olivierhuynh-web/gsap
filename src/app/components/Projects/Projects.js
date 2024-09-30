@@ -69,7 +69,7 @@ const Projects = () => {
       tl.add(
         introductionCards(section2WrapperRef.current, section2Ref.current)
       );
-      tl.add(scaleCards(cards));
+      tl.add(scaleCards(cards.current));
       tl.add(pin(section2WrapperRef.current, section2Ref.current));
     } else {
       console.log('Animations skipped for small screen');
@@ -90,7 +90,7 @@ const Projects = () => {
                 height={isSmallScreen ? 100 : 300} // Hauteur de l'image
                 className={
                   styles['section2__wrapper__card__image-wrapper__card-image']
-                } // Assure-toi que la classe CSS est correcte
+                }
               />
             </div>
             <div className={styles['section2__wrapper__card__card-content']}>

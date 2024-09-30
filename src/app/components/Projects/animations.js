@@ -28,7 +28,7 @@ export const scaleCards = (cards) => {
     cards,
     { scale: 0.9 },
     {
-      scale: 1,
+      scale: 1.2,
       duration: 1,
       transformOrigin: 'center center',
       scrollTrigger: {
