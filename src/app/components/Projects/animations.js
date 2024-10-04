@@ -39,6 +39,7 @@ export const scaleCards = (cards) => {
         markers: false,
         id: 'scale',
       },
+      onStart: console.log('scale'),
     }
   );
 };

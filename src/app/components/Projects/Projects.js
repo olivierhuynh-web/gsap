@@ -71,6 +71,7 @@ const Projects = () => {
       );
       tl.add(scaleCards(cards.current));
       tl.add(pin(section2WrapperRef.current, section2Ref.current));
+      console.log('ta mere');
     } else {
       console.log('Animations skipped for small screen');
     }
@@ -82,28 +83,39 @@ const Projects = () => {
       <div className={styles['section2__wrapper']} ref={section2WrapperRef}>
         {data.projects.map((project) => (
           <div className={styles['section2__wrapper__card']} key={project.id}>
-            <div className={styles['section2__wrapper__card__image-wrapper']}>
-              <Image
-                src='https://picsum.photos/500/300/?image=10'
-                alt='Picture of the author'
-                width={500} // Largeur de l'image
-                height={isSmallScreen ? 100 : 300} // Hauteur de l'image
-                className={
-                  styles['section2__wrapper__card__image-wrapper__card-image']
-                }
-              />
-            </div>
-            <div className={styles['section2__wrapper__card__card-content']}>
-              <h3
-                className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
-              >
-                {project.name}
-              </h3>
-              <p
-                className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
-              >
-                {project.description}
-              </p>
+            <div className={styles['section2__wrapper__card__wrapper']}>
+              <a href={`/${project.url}`}>
+                {' '}
+                <div
+                  className={styles['section2__wrapper__card__image-wrapper']}
+                >
+                  <Image
+                    src='https://picsum.photos/500/300/?image=10'
+                    alt='Picture of the author'
+                    width={500} // Largeur de l'image
+                    height={isSmallScreen ? 100 : 300} // Hauteur de l'image
+                    className={
+                      styles[
+                        'section2__wrapper__card__image-wrapper__card-image'
+                      ]
+                    }
+                  />
+                </div>
+                <div
+                  className={styles['section2__wrapper__card__card-content']}
+                >
+                  <h3
+                    className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
+                  >
+                    {project.name}
+                  </h3>
+                  <p
+                    className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
+                  >
+                    {project.description}
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
         ))}
