@@ -1,12 +1,12 @@
 {
   "projects": [
-    { "id": 1, "name": "MAMS ", "url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 2, "name": "MAMS ", "url":"ok", "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 3, "name": "MAMS ","url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 4, "name": "MAMS ","url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 1, "name": "MAMS ", "url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 2, "name": "MAMS ", "url":"ok", "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 3, "name": "MAMS ","url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 4, "name": "MAMS ","url":"ok",  "description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
 
-    { "id": 5, "name": "MAMS ",  "url":"ok","description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 6, "name": "MAMS ",  "url":"ok","description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda SernaPortfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" }
+    { "id": 5, "name": "MAMS ",  "url":"ok","description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
+    { "id": 6, "name": "MAMS ",  "url":"ok","description":"Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" }
 
 
   ]

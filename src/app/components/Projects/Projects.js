@@ -87,7 +87,9 @@ const Projects = () => {
               <a href={`/${project.url}`}>
                 {' '}
                 <div
-                  className={styles['section2__wrapper__card__image-wrapper']}
+                  className={
+                    styles['section2__wrapper__card__wrapper__image-wrapper']
+                  }
                 >
                   <Image
                     src='https://picsum.photos/500/300/?image=10'
@@ -96,21 +98,23 @@ const Projects = () => {
                     height={isSmallScreen ? 100 : 300} // Hauteur de l'image
                     className={
                       styles[
-                        'section2__wrapper__card__image-wrapper__card-image'
+                        'section2__wrapper__card__wrapper__image-wrapper__card-image'
                       ]
                     }
                   />
                 </div>
                 <div
-                  className={styles['section2__wrapper__card__card-content']}
+                  className={
+                    styles['section2__wrapper__card__wrapper__card-content']
+                  }
                 >
                   <h3
-                    className={`${styles['section2__wrapper__card-title']} ${rightGrotesk.className}`}
+                    className={`${styles['section2__wrapper__card__wrapper__card-content-title']} ${rightGrotesk.className}`}
                   >
                     {project.name}
                   </h3>
                   <p
-                    className={`${styles['section2__wrapper__card-description']} ${spaceMono.className}`}
+                    className={`${styles['section2__wrapper__card__wrapper__card-content-description']} ${spaceMono.className}`}
                   >
                     {project.description}
                   </p>
