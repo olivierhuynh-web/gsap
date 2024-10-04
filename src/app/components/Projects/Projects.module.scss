@@ -1,4 +1,5 @@
 .section2 {
+  box-sizing: border-box; // nouveau
   height: 100vh;
   width: 100vw;
   background-color: darkgrey;
@@ -11,7 +12,7 @@
   position: relative;
 
   &__wrapper {
-    padding-left: 4%;
+    padding-left: 2%;
     position: absolute;
     left: 0;
     display: flex;
@@ -81,6 +82,7 @@
 
   // VERSION MOBILE
   @media (max-width: 600px) {
+    box-sizing: border-box;
     height: auto;
     width: 100vw;
     display: flex;
@@ -91,20 +93,25 @@
 
     &__wrapper {
       padding-left: 4%;
+      box-sizing: border-box;
+
       width: 100%;
       position: relative;
       display: grid;
       grid-template-columns: repeat(
         2,
-        calc(50% - 4%)
+        calc(50% - 3%)
       ); // 2 colonnes avec ajustement pour le padding
-      row-gap: 0; // Supprimer l'espace vertical entre les lignes
+      row-gap: -10px; // Supprimer l'espace vertical entre les lignes
       column-gap: 2%; // Garder l'espace horizontal
       grid-auto-rows: auto;
       align-items: start;
+      grid-auto-rows: 25%;
 
       &__card {
-        height: 80%; // Hauteur automatique pour s'adapter au contenu
+        box-sizing: border-box;
+
+        height: 100%; // Hauteur automatique pour s'adapter au contenu
         width: 100%; // Largeur de 100% de la colonne
         display: flex;
         flex-direction: column;
@@ -117,12 +124,20 @@
         &__wrapper {
           overflow: hidden;
 
-          &-image-wrapper {
-            width: 90%;
-            height: auto; // Hauteur fixe, ajuste selon tes besoins
-            // position: relative; // Position relative pour le conteneur de l'image
-            overflow: hidden; // Empêche le débordement de l'image
-            margin: 2%;
+          &__image-wrapper {
+            height: auto;
+            width: 99%;
+            border: 1px solid black;
+            overflow: hidden;
+
+            &__card-image {
+              max-width: 100%;
+              max-height: 100%;
+              display: block;
+              margin: auto;
+              object-fit: cover;
+              // regarder pourquoi il y a un réajustement de la taille de l'image ???
+            }
           }
 
           &__card-content {
