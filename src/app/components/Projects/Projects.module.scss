@@ -21,8 +21,8 @@
     gap: 2%;
 
     &__card {
-      height: 500px;
-      width: 300px;
+      height: 600px;
+      width: 400px;
       background-color: pink;
       border-radius: 10px;
       border: solid 5px black;
@@ -60,10 +60,10 @@
         }
         &__card-content {
           &__title {
-            font-size: 22px;
+            font-size: 3rem;
             width: auto;
             margin-top: 5%;
-            margin-bottom: 5%;
+            margin-bottom: 3%;
           }
           &__tags {
             display: flex;
@@ -77,23 +77,55 @@
               padding-bottom: 2%;
               padding-left: 3%;
               padding-right: 3%;
-              background-color: rgb(13, 123, 232);
+              background-color: grey;
               font-size: 11px;
               // margin-top: 3%;
               // text-align: left;
               border-radius: 15px;
-              border: 1px black solid;
-              color: yellow;
+              border: 0.01px black solid;
+              color: white;
+              // -webkit-text-stroke: 0.2px black;
             }
           }
-          &__description {
-            height: 10%;
-            font-size: 12.5px;
-            margin-top: 5px;
-            // white-space: normal;
-            // word-wrap: break-word;
-            // overflow-wrap: break-word;
-            text-align: left;
+          &__descriptionWrapper {
+            height: 135px;
+            width: auto;
+            overflow: hidden;
+            &__text {
+              height: 10%;
+              font-size: 12.5px;
+              margin-top: 5px;
+              // white-space: normal;
+              // word-wrap: break-word;
+              // overflow-wrap: break-word;
+              text-align: left;
+            }
+            &__buttonWrapper {
+              display: flex;
+              justify-content: flex-start;
+              align-content: center;
+              width: 100%;
+              height: 100%;
+              // padding-right: 30px;
+              // background-color: orange;
+              // margin-right: 10px;
+              &__button {
+                font-size: 0.8em;
+                margin-right: 5px;
+                margin-top: 4%;
+                text-align: right;
+                height: auto;
+                width: auto;
+                background-color: #0c7be7;
+                color: yellow;
+                border-radius: 15px;
+                border: 1px solid black;
+                padding: 6px;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
           }
         }
       }

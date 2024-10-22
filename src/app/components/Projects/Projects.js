@@ -134,11 +134,32 @@ const Projects = () => {
                       ))}
                     </div>
                   }
-                  <p
-                    className={`${styles['section2__wrapper__card__wrapper__card-content__description']} ${spaceMono.className}`}
+                  <div
+                    className={
+                      styles[
+                        'section2__wrapper__card__wrapper__card-content__descriptionWrapper'
+                      ]
+                    }
                   >
-                    {project.description}
-                  </p>
+                    <p
+                      className={`${styles['section2__wrapper__card__wrapper__card-content__descriptionWrapper__text']} ${spaceMono.className}`}
+                    >
+                      {project.description}
+                    </p>
+                  </div>
+                  <div
+                    className={
+                      styles[
+                        'section2__wrapper__card__wrapper__card-content__descriptionWrapper__buttonWrapper'
+                      ]
+                    }
+                  >
+                    <button
+                      className={`${styles['section2__wrapper__card__wrapper__card-content__descriptionWrapper__buttonWrapper__button']} ${spaceMono.className}`}
+                    >
+                      website ➞
+                    </button>
+                  </div>
                 </div>
               </a>
             </div>
