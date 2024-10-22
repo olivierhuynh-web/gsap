@@ -1,6 +1,6 @@
 .section2 {
   box-sizing: border-box; // nouveau
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   background-color: darkgrey;
   display: flex;
@@ -59,12 +59,34 @@
           }
         }
         &__card-content {
-          &-title {
+          &__title {
             font-size: 22px;
             width: auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
           }
+          &__tags {
+            display: flex;
+            margin-bottom: 1%;
 
-          &-description {
+            &__tag {
+              margin-right: 2%;
+
+              height: auto;
+              padding-top: 2%;
+              padding-bottom: 2%;
+              padding-left: 3%;
+              padding-right: 3%;
+              background-color: rgb(13, 123, 232);
+              font-size: 11px;
+              // margin-top: 3%;
+              // text-align: left;
+              border-radius: 15px;
+              border: 1px black solid;
+              color: yellow;
+            }
+          }
+          &__description {
             height: 10%;
             font-size: 12.5px;
             margin-top: 5px;
@@ -81,7 +103,7 @@
   //=============================================================================================================================================
 
   // VERSION MOBILE
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     box-sizing: border-box;
     height: auto;
     width: 100vw;

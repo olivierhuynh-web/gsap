@@ -44,7 +44,7 @@ const Presentation = ({ timeline }) => {
     if (isClient) {
       // Mettre à jour l'état de la taille de l'écran côté client
       const updateScreenSize = () => {
-        setIsSmallScreen(window.innerWidth < 1000);
+        setIsSmallScreen(window.innerWidth < 1500);
       };
 
       // Initialiser l'état de la taille de l'écran
@@ -83,36 +83,72 @@ const Presentation = ({ timeline }) => {
 
   // ==================== RENDU ====================
   return (
-    <section className={styles.section_1} ref={section_1} id='presentation'>
-      <div className={styles.section_1wrapper}>
+    <section className={styles.section1} ref={section_1} id='presentation'>
+      <div className={styles.section1__wrapper}>
+        {/* 1ER RECTANGLE */}
         <div
-          className={`${styles.roundedSquare1} ${rightGrotesk.className}`}
+          className={`${styles.section1__wrapper__roundedSquare1} ${rightGrotesk.className}`}
           ref={roundedSquare1}
         >
-          <div className={styles.titleWrapper}>
+          <div
+            className={styles.section1__wrapper__roundedSquare1__titleWrapper}
+          >
             <h2>Olivier HUYNH</h2>
           </div>
         </div>
+
+        {/* 2ÈME RECTANGLE */}
+
         <div
-          className={`${styles.roundedSquare2} ${spaceMono.className}`}
+          className={`${styles.section1__wrapper__roundedSquare2} ${spaceMono.className}`}
           ref={roundedSquare2}
         >
-          <div className={styles.descriptionWrapper}>
-            <span className={styles.description}>→ Développeur web</span>
+          <div
+            className={
+              styles.section1__wrapper__roundedSquare2__descriptionWrapper
+            }
+          >
+            <span
+              className={
+                styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
+              }
+            >
+              → Développeur web
+            </span>
           </div>
-          <div className={styles.descriptionWrapper}>
-            <span className={styles.description}>
+          <div
+            className={
+              styles.section1__wrapper__roundedSquare2__descriptionWrapper
+            }
+          >
+            <span
+              className={
+                styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
+              }
+            >
               → {!isSmallScreen && 'Spécialisé'} front-end
             </span>
           </div>
         </div>
+
+        {/* 3ÈME RECTANGLE */}
+
         <div
-          className={`${styles.roundedSquare3} ${spaceMono.className}`}
+          className={`${styles.section1__wrapper__roundedSquare3} ${spaceMono.className}`}
           ref={roundedSquare3}
         >
-          <div className={styles.descriptionWrapper}>
-            <span className={styles.description}>
-              <div className={styles.greendot} ref={greenDot}>
+          <div
+            className={
+              styles.section1__wrapper__roundedSquare3__descriptionWrapper
+            }
+          >
+            <span className={styles.section1__wrapper__roundedSquare3__text}>
+              <div
+                className={
+                  styles.section1__wrapper__roundedSquare3__text__greendot
+                }
+                ref={greenDot}
+              >
                 ●
               </div>{' '}
               Ouvert pour collaborations et contrats de développement web

@@ -1,173 +1,160 @@
-.section_1 {
+.section1 {
+  // position: relative;
   height: 100vh;
   width: 100vw;
   background-color: darkgray;
-  display: flex;
-  justify-content: center;
-}
 
-.roundedSquare1 {
-  font-style: italic;
-  // font-stretch: extra-condensed;
-  letter-spacing: 1.5px;
-  padding: 20px;
-  height: 200px;
-  width: 400px;
-  background-color: white;
-  // margin-left: 36%;
-  margin-top: 20vh;
-  border-radius: 10px;
-  border: solid 5px black;
-
-  padding-top: 10px;
-  z-index: 1;
-  overflow: hidden;
-
-  .titleWrapper {
+  &__wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 0;
-    width: 100%;
-    h2 {
-      font-size: 60px;
-      margin-top: 0;
-    }
-  }
-}
-
-.roundedSquare2 {
-  padding: 20px;
-  position: absolute;
-  top: 12%;
-  height: auto;
-  width: 400px;
-  background-color: white;
-  margin-left: -13%;
-  margin-top: 20vh;
-  border-radius: 10px;
-  border: solid 5px black;
-  font-size: 22px;
-  padding-top: 10px;
-  z-index: 2;
-  overflow: hidden;
-
-  span {
-    display: block;
-  }
-}
-
-.roundedSquare3 {
-  padding: 20px;
-  position: absolute;
-  top: 17%;
-  height: auto;
-  width: 400px;
-  background-color: white;
-  margin-left: 12%;
-  margin-top: 24vh;
-  border-radius: 10px;
-  border: solid 5px black;
-  font-size: 22px;
-  padding-top: 10px;
-  z-index: 3;
-  overflow: hidden;
-
-  span {
-    display: block;
-    .greendot {
-      color: black;
-      display: inline;
-    }
-  }
-}
-
-.elementVertical {
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
-  margin-left: 300px;
-  margin-top: 300px;
-  border-radius: 10px;
-  // border: solid 5px black;
-}
-
-.description {
-  color: black;
-}
-
-.section_1wrapper {
-  overflow: hidden;
-  height: auto;
-  width: auto;
-}
-
-// VERSION MOBILE
-
-@media (max-width: 1000px) {
-  .section_1wrapper {
-    overflow: hidden;
-    height: 100wh;
+    // align-items: center;
+    height: 100vh;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
-  .roundedSquare1 {
-    width: 80%;
-    height: 150px;
-    overflow: hidden;
+    padding-bottom: 70%;
 
-    .titleWrapper {
-      // background-color: red;
-      h2 {
-        font-size: 50px;
+    &__roundedSquare1 {
+      position: absolute;
+      max-height: 106px;
+      width: 380px;
+      left: 37%;
+      right: 20%;
+      top: 19%;
+      padding: 18px;
+      background-color: white;
+      border-radius: 10px;
+      border: solid 5px black;
+      z-index: 1;
+      overflow: hidden;
+
+      &__titleWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 0;
+        width: 100%;
+        h2 {
+          font-size: 4rem;
+          margin-top: 0;
+        }
       }
     }
-  }
-  .roundedSquare2 {
-    width: 70%;
-    margin-left: -5%;
-    overflow: hidden;
-  }
-  .roundedSquare3 {
-    width: 70%;
-    margin-left: 5%;
-    margin-top: 28vh;
-    overflow: hidden;
+    &__roundedSquare2 {
+      padding: 20px;
+      padding-right: 100px;
+      position: absolute;
+      top: 31%;
+      left: 28%;
+      background-color: white;
+      border-radius: 10px;
+      border: solid 5px black;
+      z-index: 2;
+      overflow: hidden;
+
+      &__descriptionWrapper {
+        span {
+          display: block;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    &__roundedSquare3 {
+      padding: 20px;
+      position: absolute;
+      top: 33%;
+      left: 50%;
+      max-width: 350px; /* S'assurer que la largeur max ne dépasse pas celle de .roundedSquare2 */
+      background-color: white;
+      border-radius: 10px;
+      border: solid 5px black;
+      z-index: 3;
+      overflow: hidden;
+      &__text {
+        display: block;
+        font-size: 1.3rem;
+        &__greendot {
+          color: black;
+          display: inline;
+        }
+      }
+    }
   }
 }
 
-@media (max-width: 600px) {
-  .roundedSquare1 {
-    padding-left: 10px;
-    padding-right: 10px;
+// TAILLE MOYENNE
 
-    .titleWrapper {
-      // padding-left: 0 20px;
-      h2 {
-        font-size: 13vw;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__wrapper {
+      scale: 0.8;
+      &__roundedSquare1 {
+        left: 35%;
+        top: 30%;
+      }
+      &__roundedSquare2 {
+        left: 27%;
+        top: 37%;
+      }
+      &__roundedSquare3 {
+        left: 54%;
+        top: 38%;
       }
     }
   }
+}
 
-  .roundedSquare2 {
-    width: 70%; // Exemple de largeur
-    height: 100px; // Exemple de hauteur, ajustez selon vos besoins
-    // Autres styles nécessaires pour roundedSquare2
-    // left: -1px;
-    margin-left: -1px;
-  }
-
-  .roundedSquare3 {
-    position: absolute;
-    width: 70%;
-    margin-left: 10%;
-    top: calc(
-      100px + 20px
-    ); // 100px est la hauteur de roundedSquare2, 20px est la distance désirée entre les deux
+// TAILLE MOBILE
+@media (max-width: 1000px) {
+  .section1 {
+    width: auto;
     overflow: hidden;
+
+    &__wrapper {
+      display: flex; /* Utilisation du flexbox */
+      justify-content: center; /* Centrage horizontal */
+      align-items: flex-start; /* Aligne les éléments au début du conteneur */
+      position: relative; /* Nécessaire pour la positionnement absolu des enfants */
+
+      &__roundedSquare1 {
+        // position: relative;
+        margin-top: 20vh;
+        // top: 33%;
+        left: 20%;
+        height: 100px;
+        width: 240px;
+        background-color: red;
+      }
+
+      &__roundedSquare2 {
+        visibility: hidden;
+        width: 70%;
+        height: 7%;
+        margin-left: -1px;
+        z-index: 3;
+        margin-top: 20vh;
+
+        span {
+          font-size: 5vw;
+        }
+      }
+
+      &__roundedSquare3 {
+        visibility: hidden;
+
+        position: absolute;
+        width: 42%;
+        margin-top: 20vh;
+        margin-left: 29%;
+        padding-top: 15%;
+        padding-right: 8%;
+
+        top: calc(100px + 20px);
+        overflow: hidden;
+        z-index: 2;
+      }
+    }
   }
 }

@@ -1,23 +1,32 @@
 import { gsap } from 'gsap';
 
+const getAmountToScroll = (section2Wrapper) => {
+  return section2Wrapper.offsetWidth - window.innerWidth;
+};
+
 export const introductionCards = (section2Wrapper, section_2) => {
+  const amountToScroll = getAmountToScroll(section2Wrapper);
+
   gsap.fromTo(
     section2Wrapper,
+    { x: 0 },
     {
-      x: 230,
-    },
-    {
-      // scale: 1,
-      x: 0,
-      ease: 'slow(0.7,0.7,false)',
+      x: -amountToScroll - 100,
+      ease: 'slow(0.7, 0.7, false)',
       transformOrigin: 'center center',
+      duration: 7,
+
       scrollTrigger: {
         trigger: section_2,
-        start: 'top+=2px bottom',
-        end: '70% bottom',
+        start: '5% top',
+        end: '150% bottom',
         scrub: 1,
-        markers: false,
-        id: 'introduction',
+        markers: true,
+        pin: true,
+        // Optionnel : pour un espace pin
+        pinSpacing: true,
+        id: 'sliding',
+        invalidateOnRefresh: true,
       },
     }
   );
@@ -28,7 +37,7 @@ export const scaleCards = (cards) => {
     cards,
     { scale: 0.9 },
     {
-      scale: 1.2,
+      scale: 1,
       duration: 1,
       transformOrigin: 'center center',
       scrollTrigger: {
@@ -36,34 +45,9 @@ export const scaleCards = (cards) => {
         scrub: 1,
         start: '90% bottom',
         end: 'center bottom',
-        markers: false,
+        markers: true,
         id: 'scale',
       },
-      onStart: console.log('scale'),
-    }
-  );
-};
-
-export const pin = (section2Wrapper, section_2) => {
-  gsap.fromTo(
-    section2Wrapper,
-    {
-      translateX: 0,
-    },
-    {
-      translateX: '-200vw',
-      ease: 'sine.out',
-      duration: 1,
-      // scrollTrigger: {
-      //   trigger: section_2,
-      //   start: 'top top',
-      //   end: '1000 bottom',
-      //   scrub: 10,
-      //   pin: true,
-      //   pinSpacing: false,
-      //   markers: true,
-      //   id: 'horizontal',
-      // },
     }
   );
 };

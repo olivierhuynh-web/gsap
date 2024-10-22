@@ -20,7 +20,7 @@ const NavBar = () => {
   }, [currentSection]);
 
   return (
-    <div className={`${styles.container} ${inter.className}`}>
+    <header className={`${styles.container} ${inter.className}`}>
       <div className={styles.socialMedia__container}>
         {/* <div className={styles.githubLogoWrapper}> */}
         <a
@@ -52,7 +52,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -67,7 +67,7 @@ export default function Index() {
   }, []);
 
   return (
-    <body>
+    <div>
       <div className={styles.container}>
         <Presentation timeline={timeline} />
         {/* <Skills timeline={timeline} /> */}
@@ -76,6 +76,6 @@ export default function Index() {
         <Contact timeline={timeline} />
         {/* </div> */}
       </div>
-    </body>
+    </div>
   );
 }

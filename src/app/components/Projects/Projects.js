@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { introductionCards, scaleCards, pin } from './animations';
+import { introductionCards, scaleCards } from './animations';
 import data from '../../db/projects.json';
 
 import styles from './Projects.module.scss';
@@ -34,7 +34,7 @@ const Projects = () => {
     if (typeof window !== 'undefined') {
       // Fonction pour vérifier la taille de l'écran
       const checkScreenSize = () => {
-        const isSmall = window.innerWidth < 1000;
+        const isSmall = window.innerWidth < 1200;
         console.log(
           'Current width:',
           window.innerWidth,
@@ -61,7 +61,7 @@ const Projects = () => {
   useEffect(() => {
     if (!isSmallScreen) {
       // Appliquer les animations seulement si l'écran est grand
-      const cards = gsap.utils.toArray(`.${styles['section2__card']}`);
+      const cards = gsap.utils.toArray(`.${styles['section2__wrapper__card']}`);
 
       gsap.registerPlugin(ScrollTrigger);
       const tl = gsap.timeline();
@@ -69,9 +69,11 @@ const Projects = () => {
       tl.add(
         introductionCards(section2WrapperRef.current, section2Ref.current)
       );
-      tl.add(scaleCards(cards.current));
-      tl.add(pin(section2WrapperRef.current, section2Ref.current));
-      console.log('ta mere');
+      console.log(cards.length);
+      if (cards.length > 0) {
+        tl.add(scaleCards(cards));
+      }
+      // tl.add(pin(section2WrapperRef.current, section2Ref.current));
     } else {
       console.log('Animations skipped for small screen');
     }
@@ -109,12 +111,31 @@ const Projects = () => {
                   }
                 >
                   <h3
-                    className={`${styles['section2__wrapper__card__wrapper__card-content-title']} ${rightGrotesk.className}`}
+                    className={`${styles['section2__wrapper__card__wrapper__card-content__title']} ${rightGrotesk.className}`}
                   >
                     {project.name}
                   </h3>
+
+                  {
+                    <div
+                      className={
+                        styles[
+                          'section2__wrapper__card__wrapper__card-content__tags'
+                        ]
+                      }
+                    >
+                      {project.technologies.map((technology) => (
+                        <div
+                          key={technology}
+                          className={`${styles['section2__wrapper__card__wrapper__card-content__tags__tag']}  ${spaceMono.className}`}
+                        >
+                          {technology}
+                        </div>
+                      ))}
+                    </div>
+                  }
                   <p
-                    className={`${styles['section2__wrapper__card__wrapper__card-content-description']} ${spaceMono.className}`}
+                    className={`${styles['section2__wrapper__card__wrapper__card-content__description']} ${spaceMono.className}`}
                   >
                     {project.description}
                   </p>

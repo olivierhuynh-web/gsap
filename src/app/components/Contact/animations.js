@@ -18,7 +18,7 @@ export const slideEmail = (emailBubble, section_3, contactLink) => {
       start: 'top center',
       end: 'bottom center',
       scrub: true,
-      markers: false, // Désactivez les marqueurs pour éviter les distractions
+      markers: false,
       id: 'email',
     },
   });
