@@ -7,6 +7,12 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
+import { Space_Mono } from 'next/font/google';
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
 const NavBar = () => {
   const [currentSection, setCurrentSection] = useState('');
 
@@ -39,7 +45,7 @@ const NavBar = () => {
         </a>
         {/* </div> */}
       </div>
-      <div className={styles.container__links}>
+      <div className={`${styles.container__links} ${spaceMono.className}`}>
         <ul>
           <li>
             <a href='#presentation'>Présentation</a>

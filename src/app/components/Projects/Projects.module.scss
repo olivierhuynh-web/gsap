@@ -12,7 +12,7 @@
   position: relative;
 
   &__wrapper {
-    padding-left: 2%;
+    padding-left: 4%;
     position: absolute;
     left: 0;
     display: flex;
@@ -81,8 +81,8 @@
               font-size: 11px;
               // margin-top: 3%;
               // text-align: left;
-              border-radius: 15px;
-              border: 0.01px black solid;
+              // border-radius: 15px;
+              // border: 0.01px black solid;
               color: white;
               // -webkit-text-stroke: 0.2px black;
             }
@@ -92,7 +92,7 @@
             width: auto;
             overflow: hidden;
             &__text {
-              height: 10%;
+              height: 100%;
               font-size: 12.5px;
               margin-top: 5px;
               // white-space: normal;
@@ -120,7 +120,7 @@
                 color: yellow;
                 border-radius: 15px;
                 border: 1px solid black;
-                padding: 6px;
+                padding: 8px 12px;
                 &:hover {
                   cursor: pointer;
                 }
@@ -160,7 +160,7 @@
       column-gap: 2%; // Garder l'espace horizontal
       grid-auto-rows: auto;
       align-items: start;
-      grid-auto-rows: 25%;
+      grid-auto-rows: 32%;
 
       &__card {
         box-sizing: border-box;
@@ -179,7 +179,7 @@
           overflow: hidden;
 
           &__image-wrapper {
-            height: auto;
+            height: 40%;
             width: 99%;
             border: 1px solid black;
             overflow: hidden;

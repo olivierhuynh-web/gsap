@@ -23,7 +23,6 @@ export const introductionCards = (section2Wrapper, section_2) => {
         scrub: 1,
         markers: true,
         pin: true,
-        // Optionnel : pour un espace pin
         pinSpacing: true,
         id: 'sliding',
         invalidateOnRefresh: true,
