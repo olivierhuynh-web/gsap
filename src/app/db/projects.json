@@ -1,12 +1,68 @@
 {
   "projects": [
-    { "id": 0, "name": "MAMS0", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 1, "name": "MAMS1", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 2, "name": "MAMS2", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 3, "name": "MAMS3", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 4, "name": "MAMS4", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 5, "name": "MAMS5", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 6, "name": "MAMS6", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" },
-    { "id": 7, "name": "MAMS7", "technologies": ["next.js", "GSAP"], "url": "ok", "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna" }
+    {
+      "id": 0,
+      "image": "mormal.png",
+      "name": "thisMormalCoil",
+      "technologies": ["JavaScript", "GSAP"],
+      "url": "https://thismormalcoil123.vercel.app/",
+      "description": "Reproduction du portfolio de Camille Mormal"
+    },
+    {
+      "id": 1,
+      "image": "mams1.jpg",
+      "name": "MAMS1",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 2,
+      "image": "mams2.jpg",
+      "name": "MAMS2",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 3,
+      "image": "mams3.jpg",
+      "name": "MAMS3",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 4,
+      "image": "mams4.jpg",
+      "name": "MAMS4",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 5,
+      "image": "mams5.jpg",
+      "name": "MAMS5",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 6,
+      "image": "mams6.jpg",
+      "name": "MAMS6",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    },
+    {
+      "id": 7,
+      "image": "mams7.jpg",
+      "name": "MAMS7",
+      "technologies": ["next.js", "GSAP"],
+      "url": "ok",
+      "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"
+    }
   ]
 }

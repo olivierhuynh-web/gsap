@@ -98,8 +98,8 @@ const Projects = () => {
                 }
               >
                 <Image
-                  src='https://picsum.photos/500/300/?image=10'
-                  alt='Picture of the author'
+                  src={`/images/${project.image}`} // Chemin relatif à partir de /public
+                  alt='Picture of the project'
                   width={500} // Largeur de l'image
                   height={isSmallScreen ? 100 : 300} // Hauteur de l'image
                   className={
@@ -158,12 +158,12 @@ const Projects = () => {
                     ]
                   }
                 >
-                  <a href={`/${project.url}`}>
-                    <button
+                  <a href={`${project.url}`}>
+                    <div
                       className={`${styles['section2__wrapper__card__wrapper__card-content__buttonWrapper__button']} ${signale.className}`}
                     >
-                      WEBSITE ➞
-                    </button>
+                      WEBSITE <div>➝</div>
+                    </div>
                   </a>
                 </div>
               </div>
