@@ -34,6 +34,7 @@ const Presentation = ({ timeline }) => {
   const roundedSquare2 = useRef(null);
   const roundedSquare3 = useRef(null);
   const greenDot = useRef(null);
+  const descriptionRoundedSquares = useRef([]); // Déclaration du ref pour les descriptions
 
   // ==================== ÉTAT ====================
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -62,10 +63,9 @@ const Presentation = ({ timeline }) => {
 
   useEffect(() => {
     if (isClient) {
-      const descriptionRoundedSquares = gsap.utils.toArray(
-        `.${styles.description}`
-      );
-      revealText(descriptionRoundedSquares);
+      const descriptions = descriptionRoundedSquares.current; // Utilisation de l'array ref ici
+
+      revealText(descriptions);
       toGreen(greenDot.current);
 
       if (timeline) {
@@ -112,16 +112,13 @@ const Presentation = ({ timeline }) => {
               className={
                 styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
               }
+              ref={(el) => (descriptionRoundedSquares.current[0] = el)}
             >
               → Développeur web
             </span>
-          </div>
-          <div
-            className={
-              styles.section1__wrapper__roundedSquare2__descriptionWrapper
-            }
-          >
+
             <span
+              ref={(el) => (descriptionRoundedSquares.current[1] = el)}
               className={
                 styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
               }
@@ -142,17 +139,22 @@ const Presentation = ({ timeline }) => {
               styles.section1__wrapper__roundedSquare3__descriptionWrapper
             }
           >
-            <span className={styles.section1__wrapper__roundedSquare3__text}>
+            <span
+              className={
+                styles.section1__wrapper__roundedSquare3__descriptionWrapper__text
+              }
+              ref={(el) => (descriptionRoundedSquares.current[2] = el)}
+            >
               <div
                 className={
-                  styles.section1__wrapper__roundedSquare3__text__greendot
+                  styles.section1__wrapper__roundedSquare3__descriptionWrapper__text__greendot
                 }
                 ref={greenDot}
               >
                 ●
               </div>{' '}
               Ouvert pour collaborations et contrats de développement web
-            </span>{' '}
+            </span>
           </div>
         </div>
       </div>

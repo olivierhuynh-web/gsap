@@ -86,82 +86,82 @@ const Projects = () => {
         {data.projects.map((project) => (
           <div className={styles['section2__wrapper__card']} key={project.id}>
             <div className={styles['section2__wrapper__card__wrapper']}>
-              <a href={`/${project.url}`}>
-                {' '}
-                <div
+              {' '}
+              <div
+                className={
+                  styles['section2__wrapper__card__wrapper__image-wrapper']
+                }
+              >
+                <Image
+                  src='https://picsum.photos/500/300/?image=10'
+                  alt='Picture of the author'
+                  width={500} // Largeur de l'image
+                  height={isSmallScreen ? 100 : 300} // Hauteur de l'image
                   className={
-                    styles['section2__wrapper__card__wrapper__image-wrapper']
+                    styles[
+                      'section2__wrapper__card__wrapper__image-wrapper__card-image'
+                    ]
                   }
+                />
+              </div>
+              <div
+                className={
+                  styles['section2__wrapper__card__wrapper__card-content']
+                }
+              >
+                <h3
+                  className={`${styles['section2__wrapper__card__wrapper__card-content__title']} ${rightGrotesk.className}`}
                 >
-                  <Image
-                    src='https://picsum.photos/500/300/?image=10'
-                    alt='Picture of the author'
-                    width={500} // Largeur de l'image
-                    height={isSmallScreen ? 100 : 300} // Hauteur de l'image
+                  {project.name}
+                </h3>
+
+                {
+                  <div
                     className={
                       styles[
-                        'section2__wrapper__card__wrapper__image-wrapper__card-image'
+                        'section2__wrapper__card__wrapper__card-content__tags'
                       ]
                     }
-                  />
+                  >
+                    {project.technologies.map((technology) => (
+                      <div
+                        key={technology}
+                        className={`${styles['section2__wrapper__card__wrapper__card-content__tags__tag']}  ${spaceMono.className}`}
+                      >
+                        {technology}
+                      </div>
+                    ))}
+                  </div>
+                }
+                <div
+                  className={
+                    styles[
+                      'section2__wrapper__card__wrapper__card-content__descriptionWrapper'
+                    ]
+                  }
+                >
+                  <p
+                    className={`${styles['section2__wrapper__card__wrapper__card-content__descriptionWrapper__text']} ${spaceMono.className}`}
+                  >
+                    {project.description}
+                  </p>
                 </div>
                 <div
                   className={
-                    styles['section2__wrapper__card__wrapper__card-content']
+                    styles[
+                      'section2__wrapper__card__wrapper__card-content__buttonWrapper' // changfer le nom de la classe
+                    ]
                   }
                 >
-                  <h3
-                    className={`${styles['section2__wrapper__card__wrapper__card-content__title']} ${rightGrotesk.className}`}
-                  >
-                    {project.name}
-                  </h3>
-
-                  {
-                    <div
-                      className={
-                        styles[
-                          'section2__wrapper__card__wrapper__card-content__tags'
-                        ]
-                      }
-                    >
-                      {project.technologies.map((technology) => (
-                        <div
-                          key={technology}
-                          className={`${styles['section2__wrapper__card__wrapper__card-content__tags__tag']}  ${spaceMono.className}`}
-                        >
-                          {technology}
-                        </div>
-                      ))}
-                    </div>
-                  }
-                  <div
-                    className={
-                      styles[
-                        'section2__wrapper__card__wrapper__card-content__descriptionWrapper'
-                      ]
-                    }
-                  >
-                    <p
-                      className={`${styles['section2__wrapper__card__wrapper__card-content__descriptionWrapper__text']} ${spaceMono.className}`}
-                    >
-                      {project.description}
-                    </p>
-                  </div>
-                  <div
-                    className={
-                      styles[
-                        'section2__wrapper__card__wrapper__card-content__descriptionWrapper__buttonWrapper'
-                      ]
-                    }
-                  >
+                  <a href={`/${project.url}`}>
                     <button
-                      className={`${styles['section2__wrapper__card__wrapper__card-content__descriptionWrapper__buttonWrapper__button']} ${spaceMono.className}`}
+                      className={`${styles['section2__wrapper__card__wrapper__card-content__buttonWrapper__button']} ${spaceMono.className}`}
                     >
                       website ➞
                     </button>
-                  </div>
+                  </a>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         ))}

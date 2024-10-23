@@ -100,30 +100,30 @@
               // overflow-wrap: break-word;
               text-align: left;
             }
-            &__buttonWrapper {
-              display: flex;
-              justify-content: flex-start;
-              align-content: center;
-              width: 100%;
-              height: 100%;
-              // padding-right: 30px;
-              // background-color: orange;
-              // margin-right: 10px;
-              &__button {
-                font-size: 0.8em;
-                margin-right: 5px;
-                margin-top: 4%;
-                text-align: right;
-                height: auto;
-                width: auto;
-                background-color: #0c7be7;
-                color: yellow;
-                border-radius: 15px;
-                border: 1px solid black;
-                padding: 8px 12px;
-                &:hover {
-                  cursor: pointer;
-                }
+          }
+          &__buttonWrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            width: 100%;
+            height: 100%;
+            // padding-right: 30px;
+            // background-color: orange;
+            // margin-right: 10px;
+            &__button {
+              font-size: 0.8em;
+              margin-right: 5px;
+              margin-top: 4%;
+              text-align: right;
+              height: auto;
+              width: auto;
+              background-color: #0c7be7;
+              color: yellow;
+              border-radius: 15px;
+              border: 1px solid black;
+              padding: 8px 12px;
+              &:hover {
+                cursor: pointer;
               }
             }
           }
@@ -144,6 +144,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: visible;
+    grid-auto-rows: 0%;
 
     &__wrapper {
       padding-left: 4%;
@@ -160,7 +161,7 @@
       column-gap: 2%; // Garder l'espace horizontal
       grid-auto-rows: auto;
       align-items: start;
-      grid-auto-rows: 32%;
+      grid-auto-rows: 20%;
 
       &__card {
         box-sizing: border-box;
@@ -179,32 +180,43 @@
           overflow: hidden;
 
           &__image-wrapper {
-            height: 40%;
+            height: 30%;
             width: 99%;
             border: 1px solid black;
             overflow: hidden;
 
             &__card-image {
-              max-width: 100%;
-              max-height: 100%;
+              width: 100%; // Assure que l'image prend toute la largeur du wrapper
+              height: 100%; // Assure que l'image prend toute la hauteur du wrapper
               display: block;
               margin: auto;
-              object-fit: cover;
-              // regarder pourquoi il y a un réajustement de la taille de l'image ???
+              object-fit: cover; // L'image remplira le conteneur tout en respectant son aspect ratio
             }
           }
 
           &__card-content {
             overflow: hidden;
-            &-description {
-              height: 10%;
-              font-size: 12.5px;
+            height: 100%;
+
+            &__title {
+              font-size: 1.3rem;
+            }
+            &__descriptionWrapper {
+              height: 120px;
               margin-top: 5px;
               // white-space: normal;
               // word-wrap: break-word;
               // overflow-wrap: break-word;
               text-align: left;
               overflow: hidden;
+
+              &__text {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+            &__buttonWrapper {
+              background-color: #fff;
             }
           }
         }

@@ -11,6 +11,9 @@ export const revealText = (descriptionRoundedSquares) => {
       duration: 0.4,
       stagger: 0.2,
       ease: 'power2.inOut',
+      onStart: () => {
+        console.log('revealText');
+      },
     }
   );
 };

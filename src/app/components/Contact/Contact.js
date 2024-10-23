@@ -42,13 +42,9 @@ const Contact = ({ timeline }) => {
     if (timeline) {
       timeline.add(
         // Appliquer slideEmail uniquement si l'écran est suffisamment large
-        !isSmallScreen &&
-          slideEmail(
-            emailBubble.current,
-            section3.current,
-            contactLink.current
-          ),
-        slideSocial(socialBubble.current, section3.current),
+        // !isSmallScreen &&
+        slideEmail(emailBubble.current, section3.current, contactLink.current),
+        // slideSocial(socialBubble.current, section3.current),
         toBlue(blueDot.current, section3.current)
       );
     }
@@ -56,20 +52,32 @@ const Contact = ({ timeline }) => {
 
   return (
     <section className={styles.section3} ref={section3} id='contact'>
-      <div className={styles.section3_wrapper}>
-        <div className={styles.contactContainer}>
+      <div className={styles.section3__wrapper}>
+        <div className={styles.section3__wrapper__contactContainer}>
           <div className={`${spaceMono.className} `}>
-            <span className={styles.bluedot} ref={blueDot}>
+            <span
+              className={styles.ection3__wrapper__contactContainer__bluedot}
+              ref={blueDot}
+            >
               ●{' '}
             </span>
-            <span className={styles.contactLabel}>Contact</span>
+            <span
+              className={
+                styles.ection3__wrapper__contactContainer__contactLabel
+              }
+            >
+              Contact
+            </span>
           </div>
         </div>
-        <div className={styles.emailContainer} ref={emailBubble}>
+        <div
+          className={styles.section3__wrapper__emailContainer}
+          ref={emailBubble}
+        >
           <a
             href='mailto:olivier.huynh@yahoo.fr'
             ref={contactLink}
-            className={inter.className} // Appliquez la police Inter ici
+            className={inter.className}
           >
             olivier.huynh@yahoo.fr
           </a>
