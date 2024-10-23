@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: flex-end;
   z-index: 4;
+  padding-top: 1px;
 
   &__links {
     display: flex;
@@ -22,9 +23,17 @@
         list-style: none;
         padding: 0 1rem;
         white-space: nowrap; /* Empêche les éléments li de passer à la ligne */
+        &:hover {
+          cursor: pointer;
+          color: yellow;
+        }
         a {
           text-decoration: none;
           color: white;
+          &:hover {
+            color: yellow;
+            transition: color 0.9s ease; // Ajoutez cette ligne pour la transition
+          }
         }
       }
     }

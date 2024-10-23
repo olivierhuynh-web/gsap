@@ -1,5 +1,6 @@
 'use client';
 // ==================== IMPORT BIBLIOTHEQUES ====================
+import Icon from './icon';
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -96,9 +97,7 @@ const Presentation = ({ timeline }) => {
             <h2>Olivier HUYNH</h2>
           </div>
         </div>
-
         {/* 2ÈME RECTANGLE */}
-
         <div
           className={`${styles.section1__wrapper__roundedSquare2} ${spaceMono.className}`}
           ref={roundedSquare2}
@@ -127,9 +126,7 @@ const Presentation = ({ timeline }) => {
             </span>
           </div>
         </div>
-
         {/* 3ÈME RECTANGLE */}
-
         <div
           className={`${styles.section1__wrapper__roundedSquare3} ${spaceMono.className}`}
           ref={roundedSquare3}
@@ -157,6 +154,7 @@ const Presentation = ({ timeline }) => {
             </span>
           </div>
         </div>
+        <Icon className={styles.section1__wrapper__myIcon} />
       </div>
     </section>
   );

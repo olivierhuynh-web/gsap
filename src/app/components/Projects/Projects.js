@@ -15,6 +15,11 @@ import { Space_Mono } from '@next/font/google';
 const rightGrotesk = CustomFont({
   src: '../../fonts/PPRightGrotesk-CompactDark.otf',
 });
+
+const signale = CustomFont({
+  src: '../../fonts/Signale.otf',
+});
+
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
@@ -155,9 +160,9 @@ const Projects = () => {
                 >
                   <a href={`/${project.url}`}>
                     <button
-                      className={`${styles['section2__wrapper__card__wrapper__card-content__buttonWrapper__button']} ${spaceMono.className}`}
+                      className={`${styles['section2__wrapper__card__wrapper__card-content__buttonWrapper__button']} ${signale.className}`}
                     >
-                      website ➞
+                      WEBSITE ➞
                     </button>
                   </a>
                 </div>

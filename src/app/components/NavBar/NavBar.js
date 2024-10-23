@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './NavBar.module.scss';
 import Image from 'next/image';
-
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -11,6 +10,11 @@ import { Space_Mono } from 'next/font/google';
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
+});
+
+import CustomFont from '@next/font/local';
+const signale = CustomFont({
+  src: '../../fonts/Signale.otf',
 });
 
 const NavBar = () => {
@@ -28,7 +32,6 @@ const NavBar = () => {
   return (
     <header className={`${styles.container} ${inter.className}`}>
       <div className={styles.socialMedia__container}>
-        {/* <div className={styles.githubLogoWrapper}> */}
         <a
           href='https://github.com/olivierhuynh-web'
           className={styles.githubLogoWrapper}
@@ -39,22 +42,21 @@ const NavBar = () => {
             height={15}
             className={` ${styles.githubLogo}`}
             alt='github logo'
-            // className={styles.card_image}
-          ></Image>
-          {/* ok */}
+          />
         </a>
-        {/* </div> */}
       </div>
-      <div className={`${styles.container__links} ${spaceMono.className}`}>
+      <div className={`${styles.container__links} ${signale.className}`}>
         <ul>
           <li>
-            <a href='#presentation'>Présentation</a>
+            <a onClick={() => setCurrentSection('presentation')}>
+              PRÉSENTATION
+            </a>
           </li>
           <li>
-            <a href='#projets'>Projets</a>
+            <a onClick={() => setCurrentSection('projets')}>PROJETS</a>
           </li>
           <li>
-            <a href='#contact'>Contact</a>
+            <a onClick={() => setCurrentSection('contact')}>CONTACT</a>
           </li>
         </ul>
       </div>

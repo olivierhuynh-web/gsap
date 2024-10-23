@@ -84,6 +84,21 @@
         }
       }
     }
+    &__myIcon {
+      // position: absolute; /* Positionnement absolu */
+      // top: 20%; /* Ajuste selon la position verticale désirée */
+      // left: 50%; /* Ajuste selon la position horizontale désirée */
+      // transform: translate(-50%, -50%); /* Centre le SVG */
+      // fill: none; /* Couleur de remplissage (transparent ici) */
+      opacity: 1; /* Opacité */
+      position: absolute;
+      bottom: 5%;
+      right: 3%;
+      height: 100px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
