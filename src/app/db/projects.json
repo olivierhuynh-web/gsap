@@ -6,12 +6,12 @@
       "name": "thisMormalCoil",
       "technologies": ["JavaScript", "GSAP"],
       "url": "https://thismormalcoil123.vercel.app/",
-      "description": "Reproduction du portfolio de Camille Mormal"
+      "description": "Reproduction du portfolio de Camille Mormal."
     },
     {
       "id": 1,
       "image": "mams1.jpg",
-      "name": "MAMS1",
+      "name": "TEXTE ASSEZ LONG POUR TESTER LE TRONQUAGE",
       "technologies": ["next.js", "GSAP"],
       "url": "ok",
       "description": "Portfolio de l'illustratrice et designer graphique Maria Andrea Miranda Serna"

@@ -24,7 +24,6 @@ const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400'],
 });
-// ===============================================
 
 // ==================== INITIALISATION DES RÉFÉRENCES ====================
 const Projects = () => {
@@ -40,12 +39,6 @@ const Projects = () => {
       // Fonction pour vérifier la taille de l'écran
       const checkScreenSize = () => {
         const isSmall = window.innerWidth < 1200;
-        console.log(
-          'Current width:',
-          window.innerWidth,
-          'isSmallScreen:',
-          isSmall
-        );
         setIsSmallScreen(isSmall);
       };
 
@@ -62,6 +55,38 @@ const Projects = () => {
     }
   }, []);
 
+  // ==================== ADJUST TEXT SIZE ====================
+  // useEffect(() => {
+  //   function adjustTextSize() {
+  //     const descriptionWrapper = document.querySelector(
+  //       `.${styles['section2__wrapper__card__wrapper__card-content__title']}`
+  //     );
+  //     console.log(descriptionWrapper);
+  //     const maxFontSize = 12.5; // Taille de police de départ
+  //     let fontSize = maxFontSize;
+
+  //     // Réduire la taille de police jusqu'à ce que le texte tienne sur une seule ligne
+  //     while (
+  //       descriptionWrapper &&
+  //       descriptionWrapper.scrollWidth > descriptionWrapper.clientWidth &&
+  //       fontSize > 0
+  //     ) {
+  //       fontSize -= 0.5; // Réduire la taille progressivement
+  //       descriptionWrapper.style.fontSize = `${fontSize}px`;
+  //     }
+  //   }
+
+  //   // Appeler cette fonction lorsque la page est chargée et lorsqu'elle est redimensionnée
+  //   window.addEventListener('load', adjustTextSize);
+  //   window.addEventListener('resize', adjustTextSize);
+
+  //   // Cleanup listeners when component unmounts
+  //   return () => {
+  //     window.removeEventListener('load', adjustTextSize);
+  //     window.removeEventListener('resize', adjustTextSize);
+  //   };
+  // }, []);
+
   // ==================== APPLICATION DES ANIMATIONS ====================
   useEffect(() => {
     if (!isSmallScreen) {
@@ -74,11 +99,9 @@ const Projects = () => {
       tl.add(
         introductionCards(section2WrapperRef.current, section2Ref.current)
       );
-      console.log(cards.length);
       if (cards.length > 0) {
         tl.add(scaleCards(cards));
       }
-      // tl.add(pin(section2WrapperRef.current, section2Ref.current));
     } else {
       console.log('Animations skipped for small screen');
     }
@@ -91,17 +114,16 @@ const Projects = () => {
         {data.projects.map((project) => (
           <div className={styles['section2__wrapper__card']} key={project.id}>
             <div className={styles['section2__wrapper__card__wrapper']}>
-              {' '}
               <div
                 className={
                   styles['section2__wrapper__card__wrapper__image-wrapper']
                 }
               >
                 <Image
-                  src={`/images/${project.image}`} // Chemin relatif à partir de /public
+                  src={`/images/${project.image}`}
                   alt='Picture of the project'
-                  width={500} // Largeur de l'image
-                  height={isSmallScreen ? 100 : 300} // Hauteur de l'image
+                  width={500}
+                  height={isSmallScreen ? 150 : 300}
                   className={
                     styles[
                       'section2__wrapper__card__wrapper__image-wrapper__card-image'
@@ -120,24 +142,23 @@ const Projects = () => {
                   {project.name}
                 </h3>
 
-                {
-                  <div
-                    className={
-                      styles[
-                        'section2__wrapper__card__wrapper__card-content__tags'
-                      ]
-                    }
-                  >
-                    {project.technologies.map((technology) => (
-                      <div
-                        key={technology}
-                        className={`${styles['section2__wrapper__card__wrapper__card-content__tags__tag']}  ${spaceMono.className}`}
-                      >
-                        {technology}
-                      </div>
-                    ))}
-                  </div>
-                }
+                <div
+                  className={
+                    styles[
+                      'section2__wrapper__card__wrapper__card-content__tags'
+                    ]
+                  }
+                >
+                  {project.technologies.map((technology) => (
+                    <div
+                      key={technology}
+                      className={`${styles['section2__wrapper__card__wrapper__card-content__tags__tag']}  ${spaceMono.className}`}
+                    >
+                      {technology}
+                    </div>
+                  ))}
+                </div>
+
                 <div
                   className={
                     styles[
@@ -151,10 +172,11 @@ const Projects = () => {
                     {project.description}
                   </p>
                 </div>
+
                 <div
                   className={
                     styles[
-                      'section2__wrapper__card__wrapper__card-content__buttonWrapper' // changfer le nom de la classe
+                      'section2__wrapper__card__wrapper__card-content__buttonWrapper'
                     ]
                   }
                 >

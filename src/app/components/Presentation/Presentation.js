@@ -3,7 +3,6 @@
 import Icon from './icon';
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { revealText, toGreen, parallax } from './animations';
 import styles from './Presentation.module.scss';
 import CustomFont from '@next/font/local';
@@ -31,31 +30,36 @@ const useIsClient = () => {
 const Presentation = ({ timeline }) => {
   // ==================== SELECTEURS ====================
   const section_1 = useRef(null);
+  const section_projets = useRef(null); // Référence pour la section "projets"
   const roundedSquare1 = useRef(null);
   const roundedSquare2 = useRef(null);
   const roundedSquare3 = useRef(null);
   const greenDot = useRef(null);
-  const descriptionRoundedSquares = useRef([]); // Déclaration du ref pour les descriptions
+  const descriptionRoundedSquares = useRef([]); // Référence pour les descriptions
 
   // ==================== ÉTAT ====================
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const isClient = useIsClient(); // Vérifie si le rendu est côté client
 
+  // ==================== FONCTION DE DÉFILEMENT ====================
+  const scrollToProjets = () => {
+    if (section_projets.current) {
+      section_projets.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   // ==================== EFFETS ====================
   useEffect(() => {
     if (isClient) {
-      // Mettre à jour l'état de la taille de l'écran côté client
       const updateScreenSize = () => {
         setIsSmallScreen(window.innerWidth < 1500);
       };
 
-      // Initialiser l'état de la taille de l'écran
       updateScreenSize();
-
-      // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
       window.addEventListener('resize', updateScreenSize);
-
-      // Nettoyer l'écouteur d'événements
       return () => {
         window.removeEventListener('resize', updateScreenSize);
       };
@@ -64,7 +68,7 @@ const Presentation = ({ timeline }) => {
 
   useEffect(() => {
     if (isClient) {
-      const descriptions = descriptionRoundedSquares.current; // Utilisation de l'array ref ici
+      const descriptions = descriptionRoundedSquares.current;
 
       revealText(descriptions);
       toGreen(greenDot.current);
@@ -84,79 +88,96 @@ const Presentation = ({ timeline }) => {
 
   // ==================== RENDU ====================
   return (
-    <section className={styles.section1} ref={section_1} id='presentation'>
-      <div className={styles.section1__wrapper}>
-        {/* 1ER RECTANGLE */}
-        <div
-          className={`${styles.section1__wrapper__roundedSquare1} ${rightGrotesk.className}`}
-          ref={roundedSquare1}
-        >
+    <>
+      {/* SECTION 1 */}
+      <section className={styles.section1} ref={section_1} id='presentation'>
+        <div className={styles.section1__wrapper}>
+          {/* 1ER RECTANGLE */}
           <div
-            className={styles.section1__wrapper__roundedSquare1__titleWrapper}
+            className={`${styles.section1__wrapper__roundedSquare1} ${rightGrotesk.className}`}
+            ref={roundedSquare1}
           >
-            <h2>Olivier HUYNH</h2>
-          </div>
-        </div>
-        {/* 2ÈME RECTANGLE */}
-        <div
-          className={`${styles.section1__wrapper__roundedSquare2} ${spaceMono.className}`}
-          ref={roundedSquare2}
-        >
-          <div
-            className={
-              styles.section1__wrapper__roundedSquare2__descriptionWrapper
-            }
-          >
-            <span
-              className={
-                styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
-              }
-              ref={(el) => (descriptionRoundedSquares.current[0] = el)}
+            <div
+              className={styles.section1__wrapper__roundedSquare1__titleWrapper}
             >
-              → Développeur web
-            </span>
+              <h2>Olivier HUYNH</h2>
+            </div>
+          </div>
 
-            <span
-              ref={(el) => (descriptionRoundedSquares.current[1] = el)}
-              className={
-                styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
-              }
-            >
-              → {!isSmallScreen && 'Spécialisé'} front-end
-            </span>
-          </div>
-        </div>
-        {/* 3ÈME RECTANGLE */}
-        <div
-          className={`${styles.section1__wrapper__roundedSquare3} ${spaceMono.className}`}
-          ref={roundedSquare3}
-        >
+          {/* 2ÈME RECTANGLE */}
           <div
-            className={
-              styles.section1__wrapper__roundedSquare3__descriptionWrapper
-            }
+            className={`${styles.section1__wrapper__roundedSquare2} ${spaceMono.className}`}
+            ref={roundedSquare2}
           >
-            <span
+            <div
               className={
-                styles.section1__wrapper__roundedSquare3__descriptionWrapper__text
+                styles.section1__wrapper__roundedSquare2__descriptionWrapper
               }
-              ref={(el) => (descriptionRoundedSquares.current[2] = el)}
             >
-              <div
+              <span
                 className={
-                  styles.section1__wrapper__roundedSquare3__descriptionWrapper__text__greendot
+                  styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
                 }
-                ref={greenDot}
+                ref={(el) => (descriptionRoundedSquares.current[0] = el)}
               >
-                ●
-              </div>{' '}
-              Ouvert pour collaborations et contrats de développement web
-            </span>
+                → Développeur web
+              </span>
+
+              <span
+                ref={(el) => (descriptionRoundedSquares.current[1] = el)}
+                className={
+                  styles.section1__wrapper__roundedSquare2__descriptionWrapper__text
+                }
+              >
+                → {!isSmallScreen && 'Spécialisé'} front-end
+              </span>
+            </div>
           </div>
+
+          {/* 3ÈME RECTANGLE */}
+          <div
+            className={`${styles.section1__wrapper__roundedSquare3} ${spaceMono.className}`}
+            ref={roundedSquare3}
+          >
+            <div
+              className={
+                styles.section1__wrapper__roundedSquare3__descriptionWrapper
+              }
+            >
+              <span
+                className={
+                  styles.section1__wrapper__roundedSquare3__descriptionWrapper__text
+                }
+                ref={(el) => (descriptionRoundedSquares.current[2] = el)}
+              >
+                <div
+                  className={
+                    styles.section1__wrapper__roundedSquare3__descriptionWrapper__text__greendot
+                  }
+                  ref={greenDot}
+                >
+                  ●
+                </div>{' '}
+                Ouvert pour collaborations et missions de développement web
+              </span>
+            </div>
+          </div>
+
+          {/* ICÔNE POUR SCROLL */}
+          <Icon
+            className={styles.section1__wrapper__myIcon}
+            onClick={scrollToProjets}
+          />
         </div>
-        <Icon className={styles.section1__wrapper__myIcon} />
-      </div>
-    </section>
+      </section>
+
+      {/* SECTION PROJETS */}
+      <section
+        ref={section_projets}
+        id='projets'
+        className={styles.sectionProjets}
+      ></section>
+    </>
   );
 };
 
